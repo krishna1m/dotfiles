@@ -44,6 +44,9 @@ Plug 'hrsh7th/nvim-cmp'
 " For vsnip users.
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
+
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
 " Then reload init.vim and :PlugInstall to install plugins.
 
@@ -212,9 +215,25 @@ nnoremap <silent><leader>gp :G push<CR>
 nnoremap <silent><leader>gw :Gwrite<CR>
 
 " opens netrw to the right in the dir where you launch vim from
-nnoremap <silent><leader>nl :30Lex!<CR>
+" nnoremap <silent><leader>nl :30Lex!<CR>
 " opens netrw to the right in the dir where the current buffer resides
-nnoremap <silent><leader>ns :30Sex!<CR>
+"nnoremap <silent><leader>ns :30Sex!<CR>
+
+" NERDTREE
+nnoremap <silent><leader>nl :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "right"
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'!',
+                \ 'Staged'    :'+',
+                \ 'Untracked' :'?',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'𖡄',
+                \ }
 
 " Greatest paste remaps ever!!
 nnoremap <silent><leader>p :set paste expandtab<CR>
