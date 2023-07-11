@@ -1,6 +1,7 @@
 set -x PATH /Applications/CMake.app/Contents/bin $HOME/.emacs.d/bin $HOME/Library/Application\ Support/Coursier/bin $HOME/opt/.cargo/env $HOME/opt/.cargo/bin $HOME/opt/go/bin $HOME/opt/applejdk-8.0.292.9.1.jdk/Contents/Home/bin $PATH
 set -x LESS -RiXsj5Q
 set -x EDITOR vim
+set -x SBT_CREDENTIALS $HOME/.sbt/.credentials
 
 fish_vi_key_bindings
 
