@@ -1,7 +1,38 @@
-set -x PATH /Applications/CMake.app/Contents/bin $HOME/.emacs.d/bin $HOME/Library/Application\ Support/Coursier/bin $HOME/opt/.cargo/env $HOME/opt/.cargo/bin $HOME/opt/go/bin $HOME/opt/applejdk-8.0.292.9.1.jdk/Contents/Home/bin $PATH
+# cmake
+set -x CMAKE_PATH /Applications/CMake.app/Contents/bin
+set -x PATH $CMAKE_PATH $PATH
+
+# emacs
+set -x EMACS_PATH $HOME/.emacs.d/bin
+set -x PATH $EMACS_PATH $PATH
+
+# coursier
+set -x COURSIER_PATH $HOME/Library/Application\ Support/Coursier/bin
+set -x PATH $COURSIER_PATH $PATH
+
+# cargo
+set -x CARGO_ENV $HOME/opt/.cargo/env
+set -x CARGO_BIN $HOME/opt/.cargo/bin
+set -x PATH $CARGO_ENV $CARGO_BIN $PATH
+
+# golang
+set -x GO_PATH $HOME/opt/go/bin
+set -x PATH $GO_PATH $PATH
+
+# jdk
+set -x JAVA_HOME $HOME/opt/applejdk-8.0.292.9.1.jdk/Contents/Home/bin
+set -x PATH $JAVA_HOME $PATH
+
+# sbt-credentials
+set -x BUILD_SECRETS_PATH $HOME/.sbt
+set -x PATH $BUILD_SECRETS_PATH $PATH
+
+# kafka
+set -x KAFKA_PATH /Users/manmohankrishna/opt/kafka_2.12-2.3.0/bin
+set -x PATH $KAFKA_PATH $PATH
+
 set -x LESS -RiXsj5Q
-set -x EDITOR vim
-set -x SBT_CREDENTIALS $HOME/.sbt/.credentials
+set -x EDITOR nvim
 
 fish_vi_key_bindings
 

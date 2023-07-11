@@ -1,0 +1,30 @@
+" GENERAL SETTINGS
+let mapleader=" "
+set ts=2 sts=2 sw=2 expandtab
+set ai
+set nowrap
+set nowb
+set scrolloff=8
+set signcolumn=yes
+set rnu nu
+set hidden
+set hlsearch
+set smartcase
+set ignorecase
+set nocompatible
+set wildmenu
+set wildignorecase
+set foldmethod=syntax foldlevel=1
+set splitbelow splitright
+set nrformats+=alpha
+set lazyredraw
+set showmatch
+set vb
+set t_vb=
+
+syntax enable
+filetype plugin on
+filetype plugin indent on
+
+au FocusGained,BufEnter * :checktime
+au InsertLeave * silent! set nopaste

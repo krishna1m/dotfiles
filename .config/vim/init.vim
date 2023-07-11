@@ -185,8 +185,8 @@ nnoremap <silent><C-j> :wincmd j<CR>
 " find and list buffers
 nnoremap <leader>bf :b<Space>
 nnoremap <leader>bl :buffers<CR>
-nnoremap <silent>bk :bd<CR>
-nnoremap <silent>bs :w!<CR>
+nnoremap <silent><leader>bk :bd<CR>
+nnoremap <silent><leader>bs :w!<CR>
 nnoremap <silent><leader>cf :let @*=printf('file:%s:%d', expand('%:p') , line('.'))<CR>
 
 " insert date
