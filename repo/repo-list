@@ -1,2 +1,2 @@
 #!/bin/bash
-tree $GIT_BARE
+tree $GIT_BARE -L 2
