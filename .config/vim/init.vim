@@ -89,7 +89,7 @@ set wildignore=\*.git/\*
 set wildmode=longest:full,full 
 set complete=.,w,b,u,t 
 set completeopt=longest,menuone 
-set foldmethod=syntax foldlevel=10 
+set foldmethod=syntax foldlevel=1
 set splitbelow splitright 
 set nrformats+=alpha 
 set lazyredraw 

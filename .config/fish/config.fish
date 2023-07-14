@@ -20,7 +20,7 @@ set -x GO_PATH $HOME/opt/go/bin
 set -x PATH $GO_PATH $PATH
 
 # jdk
-set -x JAVA_HOME $HOME/opt/applejdk-8.0.292.9.1.jdk/Contents/Home/bin
+set -x JAVA_HOME $HOME/opt/applejdk-8.0.292.9.1.jdk/Contents/Home
 set -x PATH $JAVA_HOME $PATH
 
 # sbt-credentials
@@ -49,6 +49,7 @@ alias less='less --incsearch --save-marks'
 alias rd='less -NS'
 alias grep='grep --color'
 alias rm='rm -v'
+alias gh='cd $(git rev-parse --show-toplevel)'
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
