@@ -28,8 +28,14 @@ set -x BUILD_SECRETS_PATH $HOME/.sbt
 set -x PATH $BUILD_SECRETS_PATH $PATH
 
 # kafka
-set -x KAFKA_PATH /Users/manmohankrishna/opt/kafka_2.12-2.3.0/bin
+set -x KAFKA_PATH $HOME/opt/kafka_2.12-2.3.0/bin
 set -x PATH $KAFKA_PATH $PATH
+
+# git
+set -x GIT_BARE $HOME/repo/bare
+set -x GIT_WORKTREES $HOME/repo/worktrees
+## make-repo, tmux-cd-repo
+set -x PATH $HOME/repo $PATH
 
 set -x LESS -RiXsj5Q
 set -x EDITOR nvim
@@ -56,5 +62,5 @@ if status is-interactive
 end
 
 # Setting PATH for Python 3.11
-# The original version is saved in /Users/manmohankrishna/.config/fish/config.fish.pysave
+# The original version is saved in $HOME/.config/fish/config.fish.pysave
 set -x PATH "/Library/Frameworks/Python.framework/Versions/3.11/bin" "$PATH"

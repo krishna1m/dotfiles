@@ -1,0 +1,35 @@
+#!/bin/bash
+if [ $# -lt 2 ]; then
+    echo 'Please provide two arguments: context repo'
+    exit 1
+fi
+context=$1
+repo=$2
+if ! tmux has-session -t $repo; then
+  echo -e 'Creating a new session'
+  sleep 0.5
+  tmux new -s $repo -d
+
+  tmux rename-window -t $repo:1 bare
+  tmux send-keys -t $repo:1 \
+      cd Space $GIT_BARE/$context/$repo Enter
+  tmux rename-window -t $repo:1 bare
+  
+  tmux new-window -t $repo:2
+  tmux send-keys -t $repo:2 \
+      cd Space $GIT_WORKTREES/$context/$repo Enter
+  tmux rename-window -t $repo:2 worktrees
+  if [ -z $TMUX ]; then
+    tmux a -t $repo:1
+  else
+    tmux switch -t $repo
+  fi
+else
+  echo 'Launching already present session'
+  sleep 0.5
+  if [ -z $TMUX ]; then
+    tmux a -t $repo
+  else
+    tmux switch -t $repo
+  fi
+fi

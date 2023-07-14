@@ -1,0 +1,21 @@
+#!/bin/bash
+if [ $# -lt 2 ]; then
+    echo 'Please provide two arguments: context repo'
+    exit 1
+fi
+context=$1
+repo=$2
+if [ -d "$GIT_BARE/$context/$repo" ]
+then
+  echo 'repo bare exists'
+else
+  mkdir -p $GIT_BARE/$context/$repo
+  echo 'created repo bare'
+fi
+if [ -d "$GIT_WORKTREES/$context/$repo" ]
+then
+  echo 'repo worktree exists'
+else
+  mkdir -p $GIT_WORKTREES/$context/$repo
+  echo 'created repo worktree'
+fi
