@@ -6,6 +6,7 @@ if [[ $? -ne 0 ]]; then
 fi
 if [ $# -lt 1 ]; then
   echo 'Please provide (branch/commit)'
+  echo "name should not have a forward slash '/'"
   exit 1
 fi
 echo "name should not have a forward slash '/'"
