@@ -1,0 +1,15 @@
+#!/bin/bash
+git -C $PWD rev-parse 2>/dev/null
+if [[ $? -ne 0 ]]; then
+  echo 'not a git repo'
+  exit 1
+fi
+if [ $# -lt 1 ]; then
+  echo 'Please provide (branch/commit)'
+  exit 1
+fi
+echo "name should not have a forward slash '/'"
+branch=$1
+dir=$(echo ${PWD%/*} | sed 's/bare/worktrees/')
+mkdir -p $dir
+git worktree add $dir/$branch $branch

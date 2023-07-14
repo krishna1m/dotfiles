@@ -1,0 +1,15 @@
+#!/bin/bash
+git -C $PWD rev-parse 2>/dev/null
+if [[ $? -ne 0 ]]; then
+  echo 'not a git repo'
+  exit 1
+fi
+if [ $# -lt 2 ]; then
+  echo 'Please provide new branch name and where to checkout from - (branch/commit)'
+  exit 1
+fi
+echo "name should not have a forward slash '/'"
+new_branch=$1
+head=$2
+dir=$(echo ${PWD%/*} | sed 's/bare/worktrees/')
+git worktree add -b $new_branch $dir/$new_branch $head

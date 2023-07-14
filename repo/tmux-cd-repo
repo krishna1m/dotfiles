@@ -5,6 +5,12 @@ if [ $# -lt 2 ]; then
 fi
 context=$1
 repo=$2
+if ! [ -d "$GIT_BARE/$context/$repo" ]; then
+  mkdir -p $GIT_BARE/$context/$repo
+fi
+if ! [ -d "$GIT_WORKTREES/$context/$repo" ]; then
+  mkdir -p $GIT_WORKTREES/$context/$repo
+fi
 if ! tmux has-session -t $repo; then
   echo -e 'Creating a new session'
   sleep 0.5
@@ -12,7 +18,7 @@ if ! tmux has-session -t $repo; then
 
   tmux rename-window -t $repo:1 bare
   tmux send-keys -t $repo:1 \
-      cd Space $GIT_BARE/$context/$repo Enter
+    cd Space $GIT_BARE/$context/$repo Enter
   tmux rename-window -t $repo:1 bare
   
   tmux new-window -t $repo:2
@@ -22,7 +28,7 @@ if ! tmux has-session -t $repo; then
   if [ -z $TMUX ]; then
     tmux a -t $repo:1
   else
-    tmux switch -t $repo
+    tmux switch -t $repo:1
   fi
 else
   echo 'Launching already present session'
