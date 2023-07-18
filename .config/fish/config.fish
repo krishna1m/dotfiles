@@ -26,6 +26,7 @@ set -x PATH $JAVA_HOME $PATH
 # sbt-credentials
 set -x BUILD_SECRETS_PATH $HOME/.sbt
 set -x PATH $BUILD_SECRETS_PATH $PATH
+set -x SBT_CREDENTIALS $HOME/.sbt/sbt.credentials
 
 # kafka
 set -x KAFKA_PATH $HOME/opt/kafka_2.12-2.3.0/bin

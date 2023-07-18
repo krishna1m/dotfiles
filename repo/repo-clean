@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ $# -lt 2 ]; then
+    echo 'Please provide two arguments: context repo'
+    exit 1
+fi
+context=$1
+repo=$2
+if [ -d "$GIT_BARE/$context/$repo" ]; then
+  rm -rf $GIT_BARE/$context/$repo
+fi
+if [ -d "$GIT_WORKTREES/$context/$repo" ]; then
+  rm -rf $GIT_WORKTREES/$context/$repo
+fi
