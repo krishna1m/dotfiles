@@ -63,13 +63,13 @@ end)
 -- buffer diagnostics only
 map("n", "<leader>di", vim.diagnostic.setloclist)
 
-map("n", "[c", function()
-  vim.diagnostic.goto_prev({ wrap = false })
-end)
+-- map("n", "[c", function()
+--   vim.diagnostic.goto_prev({ wrap = false })
+-- end)
 
-map("n", "]c", function()
-  vim.diagnostic.goto_next({ wrap = false })
-end)
+-- map("n", "]c", function()
+--   vim.diagnostic.goto_next({ wrap = false })
+-- end)
 
 -- Example mappings for usage with nvim-dap. If you don't use that, you can
 -- skip these

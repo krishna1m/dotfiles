@@ -183,14 +183,15 @@ nnoremap <silent><C-k> :wincmd k<CR>
 nnoremap <silent><C-j> :wincmd j<CR>
 
 " find and list buffers
-nnoremap <leader>bf :b<Space>
+nnoremap <leader>, :b<Space>
+nnoremap <leader>. :vsp<Space>
 nnoremap <leader>bl :buffers<CR>
 nnoremap <silent><leader>bk :bd<CR>
 nnoremap <silent><leader>bs :w!<CR>
 nnoremap <silent><leader>cf :let @*=printf('file:%s:%d', expand('%:p') , line('.'))<CR>
 
 " insert date
-nnoremap <silent><leader>dt :put =strftime('* %a %Y-%m-%d %H:%M:%S%z')<CR>
+nnoremap <silent><leader>da :put =strftime('* %a %Y-%m-%d %H:%M:%S%z')<CR>
 
 nnoremap <silent><leader>dv :Gvdiffsplit<CR>
 
@@ -215,7 +216,10 @@ nnoremap <silent><leader>gp :G push<CR>
 nnoremap <silent><leader>gw :Gwrite<CR>
 
 " NERDTREE
-nnoremap <silent><leader>nl :NERDTreeToggle<CR>
+nnoremap <silent><leader>ns :NERDTree<CR>
+nnoremap <silent><leader>nf :NERDTreeFind<CR>
+nnoremap <silent><leader>nc :NERDTreeClose<CR>
+nnoremap <silent><leader>nt :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Modified'  :'!',
@@ -261,14 +265,14 @@ nmap <silent><S-Tab> :tabprev<CR>
 nmap <silent><Tab> :tabnext<CR>
 
 " Reorient windows between vertical and horizontal
-nnoremap <silent>tv <C-w>t<C-w>H
-nnoremap <silent>th <C-w>t<C-w>K
+nnoremap <silent><leader>tv <C-w>t<C-w>H
+nnoremap <silent><leader>th <C-w>t<C-w>K
 
-nnoremap <silent>[wh :resize -5<CR>
-nnoremap <silent>]wh :resize +5<CR>
+nnoremap <silent><C-w>- :resize -5<CR>
+nnoremap <silent><C-w>+ :resize +5<CR>
 
-nnoremap <silent>[wv :vertical resize -5<CR>
-nnoremap <silent>]wv :vertical resize +5<CR>
+nnoremap <silent><C-w>< :vertical resize -5<CR>
+nnoremap <silent><C-w>> :vertical resize +5<CR>
 
 " run a command on each line that matches
 vnoremap <leader>c <ESC>:'<,'>g//<Left>
