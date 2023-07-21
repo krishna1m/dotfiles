@@ -183,9 +183,8 @@ nnoremap <silent><C-k> :wincmd k<CR>
 nnoremap <silent><C-j> :wincmd j<CR>
 
 " find and list buffers
-nnoremap <leader>, :b<Space>
-nnoremap <leader>. :e<Space>
-nnoremap <leader>bl :buffers<CR>
+" Hitting Ctrl-x will open the file under the cursor as a horizontal split.
+" Hitting Ctrl-v will alternatively open that file as a vertical split.
 nnoremap <silent><leader>bk <Plug>Kwbd
 nnoremap <silent><leader>bs :w!<CR>
 nnoremap <silent><leader>cf :let @*=printf('file:%s:%d', expand('%:p') , line('.'))<CR>
@@ -197,17 +196,23 @@ nnoremap <silent><leader>da :put =strftime('* %a %Y-%m-%d %H:%M:%S%z')<CR>
 nnoremap <silent><leader>dv :Gvdiffsplit<CR>
 
 " fuzzy fuzzy
-nnoremap <silent><leader>ff :Files<CR>
-nnoremap <silent><leader>fg :GFiles<CR>
-nnoremap <silent><leader>ft :Tags<CR>
 nnoremap <silent><leader>fb :Buffers<CR>
+nnoremap <silent><leader>ff :Files<CR>
 nnoremap <silent><leader>fh :History<CR>
-nnoremap <silent><leader>fc :Commits<CR>
+nnoremap <silent><leader>fj :Jumps<CR>
+nnoremap <silent><leader>fl :Lines<CR>
+nnoremap <silent><leader>fm :Marks<CR>
 nnoremap <silent><leader>fr :Rg<CR>
+nnoremap <silent><leader>fw :Windows<CR>
+
+nnoremap <silent><leader>fgf :GFiles<CR>
 
 " Git binds
 nnoremap <silent><leader>gg :G<CR>
 nnoremap <silent><leader>gb :G blame<CR>
+" commits
+nnoremap <silent><leader>gca :Commits<CR>
+nnoremap <silent><leader>gcc :BCommits<CR>
 " git log
 nnoremap <silent><leader>gl :GV<CR>
 " git log for the current file
@@ -264,6 +269,10 @@ nnoremap <leader>tr :TabooRename<Space>
 nnoremap <silent>ts :tab sp<CR>
 nmap <silent><S-Tab> :tabprev<CR>
 nmap <silent><Tab> :tabnext<CR>
+
+" Tags
+nnoremap <silent><leader>ta :Tags<CR>
+nnoremap <silent><leader>tc :BTags<CR>
 
 " Reorient windows between vertical and horizontal
 nnoremap <silent><leader>tv <C-w>t<C-w>H
