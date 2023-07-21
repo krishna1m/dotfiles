@@ -66,6 +66,9 @@
 (setq which-key-idle-delay 0)
 
 (setq treemacs-position 'right)
+(setq treemacs-width 80)
+(setq treemacs--width-is-locked nil)
+(setq treemacs-width-is-initially-locked nil)
 
 ;; Centaur-tabs
 (centaur-tabs-mode t)
