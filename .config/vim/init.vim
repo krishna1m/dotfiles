@@ -184,11 +184,12 @@ nnoremap <silent><C-j> :wincmd j<CR>
 
 " find and list buffers
 nnoremap <leader>, :b<Space>
-nnoremap <leader>. :vsp<Space>
+nnoremap <leader>. :e<Space>
 nnoremap <leader>bl :buffers<CR>
-nnoremap <silent><leader>bk :bd<CR>
+nnoremap <silent><leader>bk <Plug>Kwbd
 nnoremap <silent><leader>bs :w!<CR>
 nnoremap <silent><leader>cf :let @*=printf('file:%s:%d', expand('%:p') , line('.'))<CR>
+:let bclose_multiple = 0
 
 " insert date
 nnoremap <silent><leader>da :put =strftime('* %a %Y-%m-%d %H:%M:%S%z')<CR>

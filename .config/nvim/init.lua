@@ -1,4 +1,5 @@
 vim.cmd('source ~/.config/vim/init.vim')
+vim.cmd('source ~/.config/vim/bclose.vim')
 require "howl.packerstrap"
 require "howl.plugins"
 require "howl.metals"
