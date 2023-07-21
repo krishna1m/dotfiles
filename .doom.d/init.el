@@ -165,7 +165,7 @@
        ;;rst               ; ReST in peace
        ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        ;;(rust +lsp)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
-       scala             ; java, but good
+       ;;scala             ; java, but good
        ;;(scheme +guile)   ; a fully conniving family of lisps
        sh                ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
@@ -287,3 +287,16 @@
   :hook
   (lsp-mode . dap-mode)
   (lsp-mode . dap-ui-mode))
+
+(defun lsp-find-workspace (server-id &optional file-name)
+    "Find workspace for SERVER-ID for FILE-NAME."
+    (-when-let* ((session (lsp-session))
+                 (folder->servers (lsp-session-folder->servers session))
+                 (workspaces (if file-name
+                                 (let* ((folder (lsp-find-session-folder session file-name))
+                                        (folder-last-char (substring folder (- (length folder) 1) (length folder)))
+                                        (key (if (string= folder-last-char "/") (substring folder 0 (- (length folder) 1)) folder)))
+                                   (gethash key folder->servers))
+                               (lsp--session-workspaces session))))
+
+      (--first (eq (lsp--client-server-id (lsp--workspace-client it)) server-id) workspaces)))

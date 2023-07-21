@@ -78,19 +78,6 @@
 ;; Load up banner
 (setq +doom-dashboard-banner-file (expand-file-name "banner.png" doom-private-dir))
 
-(defun lsp-find-workspace (server-id &optional file-name)
-    "Find workspace for SERVER-ID for FILE-NAME."
-    (-when-let* ((session (lsp-session))
-                 (folder->servers (lsp-session-folder->servers session))
-                 (workspaces (if file-name
-                                 (let* ((folder (lsp-find-session-folder session file-name))
-                                        (folder-last-char (substring folder (- (length folder) 1) (length folder)))
-                                        (key (if (string= folder-last-char "/") (substring folder 0 (- (length folder) 1)) folder)))
-                                   (gethash key folder->servers))
-                               (lsp--session-workspaces session))))
-
-      (--first (eq (lsp--client-server-id (lsp--workspace-client it)) server-id) workspaces)))
-
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;

@@ -6,7 +6,7 @@ set -x PATH $CMAKE_PATH $PATH
 set -x EMACS_PATH $HOME/.emacs.d/bin
 set -x PATH $EMACS_PATH $PATH
 
-# coursier
+# coursier - do `coursier install metals`
 set -x COURSIER_PATH $HOME/Library/Application\ Support/Coursier/bin
 set -x PATH $COURSIER_PATH $PATH
 
