@@ -94,7 +94,7 @@ set splitbelow splitright
 set nrformats+=alpha 
 set lazyredraw 
 set showmatch 
-set noshowcmd 
+set showcmd 
 set vb 
 set t_vb= 
 set shortmess=atIsc 
@@ -205,7 +205,7 @@ nnoremap <silent><leader>fm :Marks<CR>
 nnoremap <silent><leader>fr :Rg<CR>
 nnoremap <silent><leader>fw :Windows<CR>
 
-nnoremap <silent><leader>fgf :GFiles<CR>
+nnoremap <silent><leader>fg :GFiles<CR>
 
 " Git binds
 nnoremap <silent><leader>gg :G<CR>
