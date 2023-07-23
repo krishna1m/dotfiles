@@ -222,7 +222,7 @@ nnoremap <silent><leader>gp :G push<CR>
 nnoremap <silent><leader>gw :Gwrite<CR>
 
 " NERDTREE
-nnoremap <silent><leader>ns :NERDTree<CR>
+nnoremap <silent><leader>no :NERDTree<CR>
 nnoremap <silent><leader>nf :NERDTreeFind<CR>
 nnoremap <silent><leader>nc :NERDTreeClose<CR>
 nnoremap <silent><leader>nt :NERDTreeToggle<CR>
