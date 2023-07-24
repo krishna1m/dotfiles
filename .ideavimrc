@@ -19,6 +19,7 @@ set splitbelow splitright
 set nrformats+=alpha
 set lazyredraw
 set showmatch
+set incsearch
 set vb
 set t_vb=
 
