@@ -105,6 +105,7 @@ set colorcolumn=+1
 set encoding=utf-8 
 set guioptions=-e 
 set sessionoptions+=tabpages,globals
+set mouse=
 
 set laststatus=3
 set winbar=%=%m%r\ %{expand('%:t')}

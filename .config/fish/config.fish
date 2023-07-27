@@ -40,6 +40,9 @@ set -x PATH $HOME/repo $PATH
 
 set -x LESS -RiXsj5Q
 set -x EDITOR nvim
+set -x VISUAL nvim
+
+set -U fish_features qmark-noglob
 
 fish_vi_key_bindings
 
