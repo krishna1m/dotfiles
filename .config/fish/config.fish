@@ -35,8 +35,10 @@ set -x PATH $KAFKA_PATH $PATH
 # git
 set -x GIT_BARE $HOME/repo/bare
 set -x GIT_WORKTREES $HOME/repo/worktrees
-## make-repo, tmux-cd-repo
+## repo make it ez pz
 set -x PATH $HOME/repo $PATH
+## repo make it ez pz
+set -x PATH $HOME/.config/tmux $PATH
 
 set -x LESS -RiXsj5Q
 set -x EDITOR nvim
@@ -48,6 +50,10 @@ fish_vi_key_bindings
 fzf_key_bindings
 
 zoxide init fish | source
+# ~/.tmux/plugins
+fish_add_path $HOME/.tmux/plugins/t-smart-tmux-session-manager/bin
+# ~/.config/tmux/plugins
+fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 
 set -g tide_character_icon %
 set -g tide_character_vi_icon_default %
@@ -63,6 +69,9 @@ alias rd='less -NS'
 alias grep='grep --color'
 alias rm='rm -v'
 alias gh='cd $(git rev-parse --show-toplevel)'
+alias n "fd --type f --hidden --exclude .git --exclude target --exclude .metals --exclude .scala-build --exclude .bloop --exclude .bsp --exclude .sbt --exclude .emacs.d --exclude .ivy2 --exclude .docker --exclude .npm --exclude .local --exclude .cache --exclude cache --exclude .Trash --exclude .android --exclude .idea --exclude .zsh_sessions --exclude Caches --exclude Library --exclude Music --exclude Movies | fzf-tmux -p | xargs nvim"
+# meant to be run outside of tmux
+alias tn "tmux new -s (pwd | sed 's/.*\///g')"
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
