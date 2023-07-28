@@ -48,6 +48,7 @@ set -U fish_features qmark-noglob
 
 fish_vi_key_bindings
 fzf_key_bindings
+set -x FZF_DEFAULT_OPTS '--layout=reverse'
 
 zoxide init fish | source
 # ~/.tmux/plugins
