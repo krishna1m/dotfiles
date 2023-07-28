@@ -45,6 +45,9 @@ set -x VISUAL nvim
 set -U fish_features qmark-noglob
 
 fish_vi_key_bindings
+fzf_key_bindings
+
+zoxide init fish | source
 
 set -g tide_character_icon %
 set -g tide_character_vi_icon_default %
