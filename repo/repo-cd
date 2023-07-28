@@ -31,8 +31,6 @@ if ! tmux has-session -t $repo; then
     tmux switch -t $repo:1
   fi
 else
-  echo 'Launching already present session'
-  sleep 0.5
   if [ -z $TMUX ]; then
     tmux a -t $repo
   else
