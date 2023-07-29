@@ -34,6 +34,7 @@ Plug 'bogado/file-line'
 Plug 'pechorin/any-jump.vim'
 Plug 'gcmt/taboo.vim'
 Plug 'wellle/context.vim'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -279,6 +280,10 @@ nnoremap <silent><leader>tc :BTags<CR>
 nnoremap <silent><leader>tv <C-w>t<C-w>H
 nnoremap <silent><leader>th <C-w>t<C-w>K
 
+let g:VM_maps = {}
+let g:VM_maps["Add Cursor Down"] = '<M-f>'
+let g:VM_maps["Add Cursor Up"]   = '<M-b>'
+
 nnoremap <silent><C-w>- :resize -5<CR>
 nnoremap <silent><C-w>+ :resize +5<CR>
 
@@ -307,10 +312,6 @@ vnoremap < <gv
 " change every backslash to forward slash and vice-versa in the current line
 nnoremap <silent> <Leader>/ :let tmp=@/<Bar>s:\\:/:ge<Bar>let @/=tmp<Bar>noh<CR>
 nnoremap <silent> <Leader><Bslash> :let tmp=@/<Bar>s:/:\\:ge<Bar>let @/=tmp<Bar>noh<CR>
-
-" Cycling through buffers
-nnoremap <C-n> :execute ":buffer ".(bufnr("%") + 1)<CR>
-nnoremap <C-p> :execute ":buffer ".(bufnr("%") - 1)<CR>
 
 " ins-completion
 inoremap ^] ^X^]
