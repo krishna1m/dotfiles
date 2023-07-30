@@ -1,20 +1,20 @@
 #!/bin/bash
-if ! tmux has-session -t 🏡; then
-  tmux new -s 🏡 -d
+if ! tmux has-session -t home; then
+  tmux new -s home -d
 
-  tmux rename-window -t 🏡:1 home
-  tmux send-keys -t 🏡:1 \
+  tmux rename-window -t home:1 🏡
+  tmux send-keys -t home:1 \
     cd Space ~ Enter
   
   if [ -z $TMUX ]; then
-    tmux a -t 🏡:1
+    tmux a -t home:1
   else
-    tmux switch -t 🏡:1
+    tmux switch -t home:1
   fi
 else
   if [ -z $TMUX ]; then
-    tmux a -t 🏡 -c ~
+    tmux a -t home -c ~
   else
-    tmux switch -t 🏡
+    tmux switch -t home
   fi
 fi
