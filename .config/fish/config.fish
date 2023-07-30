@@ -64,7 +64,10 @@ set -g tide_character_color 355E3B
 set -g tide_character_color_failure C41E3A
 
 alias ..='cd ..'
-alias ll='ls -lhar --color'
+alias ls='exa'
+alias ll='exa -lhart accessed'
+# for dense tree output, use flag --long, ie, `tree --long`
+alias tree='exa --tree'
 alias less='less --incsearch --save-marks'
 alias rd='less -NS'
 alias grep='grep --color'
