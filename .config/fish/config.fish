@@ -40,10 +40,6 @@ set -x PATH $HOME/repo $PATH
 ## repo make it ez pz
 set -x PATH $HOME/.config/tmux $PATH
 
-set -x LESS -RiXsj5Q
-set -x EDITOR nvim
-set -x VISUAL nvim
-
 set -U fish_features qmark-noglob
 
 fish_vi_key_bindings
@@ -63,19 +59,28 @@ set -g tide_character_vi_icon_visual %
 set -g tide_character_color 355E3B
 set -g tide_character_color_failure C41E3A
 
+set -x LESS "-RiXsj5Q"
+set -x EDITOR "nvim"
+set -x VISUAL "nvim"
+
 alias ..='cd ..'
-alias ls='exa'
-alias ll='exa -lhart accessed'
+alias ...='cd ../..'
+alias ls='exa --group-directories-first'
+alias ll='exa --group-directories-first -lhart accessed'
 # for dense tree output, use flag --long, ie, `tree --long`
 alias tree='exa --tree'
 alias less='less --incsearch --save-marks'
 alias rd='less -NS'
 alias grep='grep --color'
+alias cp='cp -i'
+alias df='df -h'
 alias rm='rm -v'
 alias gh='cd $(git rev-parse --show-toplevel)'
 alias n "fd --type f --hidden --exclude .git --exclude target --exclude .metals --exclude .scala-build --exclude .bloop --exclude .bsp --exclude .sbt --exclude .emacs.d --exclude .ivy2 --exclude .docker --exclude .npm --exclude .local --exclude .cache --exclude cache --exclude .Trash --exclude .android --exclude .idea --exclude .zsh_sessions --exclude Caches --exclude Library --exclude Music --exclude Movies | fzf-tmux -p | xargs nvim"
+alias r "ranger"
 # meant to be run outside of tmux
-alias tn "tmux new -s (pwd | sed 's/.*\///g')"
+alias tn="tmux new -s (pwd | sed 's/.*\///g')"
+alias vim='nvim'
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
