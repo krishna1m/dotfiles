@@ -77,10 +77,12 @@ alias df='df -h'
 alias rm='rm -v'
 alias gh='cd $(git rev-parse --show-toplevel)'
 alias n "fd --type f --hidden --exclude .git --exclude target --exclude .metals --exclude .scala-build --exclude .bloop --exclude .bsp --exclude .sbt --exclude .emacs.d --exclude .ivy2 --exclude .docker --exclude .npm --exclude .local --exclude .cache --exclude cache --exclude .Trash --exclude .android --exclude .idea --exclude .zsh_sessions --exclude Caches --exclude Library --exclude Music --exclude Movies | fzf-tmux -p | xargs nvim"
-alias r "ranger"
 # meant to be run outside of tmux
 alias tn="tmux new -s (pwd | sed 's/.*\///g')"
-alias vim='nvim'
+
+abbr r "ranger"
+abbr v 'nvim'
+abbr vim 'nvim'
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
