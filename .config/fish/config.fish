@@ -45,6 +45,7 @@ set -U fish_features qmark-noglob
 fish_vi_key_bindings
 fzf_key_bindings
 set -x FZF_DEFAULT_OPTS '--layout=reverse'
+set -x BAT_THEME 'gruvbox-dark'
 
 zoxide init fish | source
 # ~/.tmux/plugins
@@ -76,7 +77,8 @@ alias cp='cp -i'
 alias df='df -h'
 alias rm='rm -v'
 alias gh='cd $(git rev-parse --show-toplevel)'
-alias n "fd --type f --hidden --exclude .git --exclude target --exclude .metals --exclude .scala-build --exclude .bloop --exclude .bsp --exclude .sbt --exclude .emacs.d --exclude .ivy2 --exclude .docker --exclude .npm --exclude .local --exclude .cache --exclude cache --exclude .Trash --exclude .android --exclude .idea --exclude .zsh_sessions --exclude Caches --exclude Library --exclude Music --exclude Movies | fzf-tmux -p | xargs nvim"
+alias gd="git branch --merged | grep -ve 'main\|master\|develop\|staging' >/tmp/merged-branches  && nvim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
+alias n "fd --type f --hidden --exclude .git --exclude target --exclude .metals --exclude .scala-build --exclude .bloop --exclude .bsp --exclude .sbt --exclude .emacs.d --exclude .ivy2 --exclude .docker --exclude .npm --exclude .local --exclude .cache --exclude cache --exclude .Trash --exclude .android --exclude .idea --exclude .zsh_sessions --exclude Caches --exclude Library --exclude Music --exclude Movies | fzf-tmux -p --preview='bat --color=always {}' | xargs nvim"
 # meant to be run outside of tmux
 alias tn="tmux new -s (pwd | sed 's/.*\///g')"
 

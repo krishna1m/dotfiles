@@ -35,6 +35,7 @@ Plug 'pechorin/any-jump.vim'
 Plug 'gcmt/taboo.vim'
 Plug 'wellle/context.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'derekwyatt/vim-scala'
 
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -293,6 +294,9 @@ nnoremap <silent><leader>th <C-w>t<C-w>K
 let g:VM_maps = {}
 let g:VM_maps["Add Cursor Down"] = '<M-f>'
 let g:VM_maps["Add Cursor Up"]   = '<M-b>'
+
+let g:scala_scaladoc_indent = 1
+let g:scala_use_default_keymappings = 0
 
 nnoremap <silent><C-w>- :resize -5<CR>
 nnoremap <silent><C-w>+ :resize +5<CR>
