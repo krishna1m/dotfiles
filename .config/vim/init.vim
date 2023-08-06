@@ -47,6 +47,10 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
+" Elixir
+Plug 'elixir-editors/vim-elixir', { 'for': ['elixir', 'eelixir']}
+Plug 'tpope/vim-endwise', { 'for': ['elixir'] }
+
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()

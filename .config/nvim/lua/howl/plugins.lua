@@ -74,6 +74,9 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use({ "wbthomason/packer.nvim", opt = true })
 
+  -- lsp config for elixir-ls support
+  use {'neovim/nvim-lspconfig'}
+
   use({
     "hrsh7th/nvim-cmp",
     requires = {
@@ -82,6 +85,17 @@ return require('packer').startup(function(use)
       { "hrsh7th/vim-vsnip" },
     },
   })
+
+  use {'hrsh7th/cmp-buffer'}
+  use {'hrsh7th/cmp-path'}
+  use {'hrsh7th/cmp-cmdline'}
+
+  use {'hrsh7th/vim-vsnip'}
+  use {'hrsh7th/cmp-vsnip'}
+
+  -- treesitter for syntax highlighting and more
+  use {'nvim-treesitter/nvim-treesitter'}
+
   use({
     "scalameta/nvim-metals",
     requires = {
