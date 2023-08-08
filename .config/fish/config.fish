@@ -32,6 +32,11 @@ set -x SBT_CREDENTIALS $HOME/.sbt/sbt.credentials
 set -x KAFKA_PATH $HOME/opt/kafka_2.12-2.3.0/bin
 set -x PATH $KAFKA_PATH $PATH
 
+# mongodb
+set -x MONGO_PATH $HOME/opt/mongodb/bin
+set -x PATH $MONGO_PATH $PATH
+alias mongod="mongod --dbpath=/Users/manmohankrishna/data/db"
+
 # git
 set -x GIT_BARE $HOME/repo/bare
 set -x GIT_WORKTREES $HOME/repo/worktrees
