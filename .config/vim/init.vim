@@ -305,8 +305,8 @@ let g:scala_use_default_keymappings = 0
 nnoremap <silent><C-w>- :resize -5<CR>
 nnoremap <silent><C-w>+ :resize +5<CR>
 
-nnoremap <silent><C-w>< :vertical resize -5<CR>
-nnoremap <silent><C-w>> :vertical resize +5<CR>
+nnoremap <silent><C-w>< :vertical resize -15<CR>
+nnoremap <silent><C-w>> :vertical resize +15<CR>
 
 " run a command on each line that matches
 vnoremap <leader>c <ESC>:'<,'>g//<Left>
