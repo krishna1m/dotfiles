@@ -86,6 +86,7 @@ alias gd="git branch --merged | grep -ve 'main\|master\|develop\|staging' >/tmp/
 alias n "fd --type f --hidden --exclude .git --exclude target --exclude .metals --exclude .scala-build --exclude .bloop --exclude .bsp --exclude .sbt --exclude .emacs.d --exclude .ivy2 --exclude .docker --exclude .npm --exclude .local --exclude .cache --exclude cache --exclude .Trash --exclude .android --exclude .idea --exclude .zsh_sessions --exclude Caches --exclude Library --exclude Music --exclude Movies | fzf-tmux -p --preview='bat --color=always {}' | xargs nvim"
 # meant to be run outside of tmux
 alias tn="tmux new -s (pwd | sed 's/.*\///g')"
+alias dps='docker ps --format "table {{.Image}}\t{{.Ports}}\t{{.Names}}"'
 
 abbr r "ranger"
 abbr v 'nvim'
