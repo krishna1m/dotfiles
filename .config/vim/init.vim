@@ -224,6 +224,7 @@ nnoremap <silent><leader>gb :G blame<CR>
 " commits
 nnoremap <silent><leader>gca :Commits<CR>
 nnoremap <silent><leader>gcc :BCommits<CR>
+nnoremap <silent><leader>gcd :Gcd<CR>
 " git log
 nnoremap <silent><leader>gl :GV<CR>
 " git log for the current file
