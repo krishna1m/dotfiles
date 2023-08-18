@@ -56,6 +56,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 "
 " More text objects
 Plug 'vim-scripts/argtextobj.vim'
+Plug 'bkad/CamelCaseMotion'
 call plug#end()
 " Then reload init.vim and :PlugInstall to install plugins.
 
@@ -306,6 +307,7 @@ let g:scala_scaladoc_indent = 1
 let g:scala_use_default_keymappings = 0
 
 let g:argumentobject_force_toplevel = 0
+let g:camelcasemotion_key = '<leader>'
 
 nnoremap <silent><C-w>- :resize -5<CR>
 nnoremap <silent><C-w>+ :resize +5<CR>
