@@ -58,6 +58,11 @@ fish_add_path $HOME/.tmux/plugins/t-smart-tmux-session-manager/bin
 # ~/.config/tmux/plugins
 fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 
+direnv hook fish | source
+set -g direnv_fish_mode eval_on_arrow    # trigger direnv at prompt, and on every arrow-based directory change (default)
+# set -g direnv_fish_mode eval_after_arrow # trigger direnv at prompt, and only after arrow-based directory changes before executing command
+# set -g direnv_fish_mode disable_arrow    # trigger direnv at prompt only, this is similar functionality to the original behavior
+
 set -g tide_character_icon %
 set -g tide_character_vi_icon_default %
 set -g tide_character_vi_icon_replace %
