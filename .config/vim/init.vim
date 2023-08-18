@@ -79,6 +79,7 @@ set timeoutlen=500
 let mapleader=" "
 set ts=2 sts=2 sw=2 expandtab
 set ai ci
+set autoread
 set nowrap 
 set nowb 
 set noswapfile 
