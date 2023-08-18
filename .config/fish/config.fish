@@ -126,6 +126,7 @@ abbr gs 'git status'
 abbr gstl 'git stash list'
 abbr gsta 'git stash apply'
 abbr gstp 'git stash push -m'
+abbr gstpo 'git stash pop'
 
 # tmux
 abbr tns 'tmux new -s'
