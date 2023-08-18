@@ -123,8 +123,10 @@ abbr gpus 'git push'
 abbr gr 'git rebase'
 abbr gs 'git status'
 
-abbr gstl 'git stash list'
 abbr gsta 'git stash apply'
+abbr gstc 'git stash clear'
+abbr gstd 'git stash drop'
+abbr gstl 'git stash list'
 abbr gstp 'git stash push -m'
 abbr gstpo 'git stash pop'
 
