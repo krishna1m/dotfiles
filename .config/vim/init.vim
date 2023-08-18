@@ -53,6 +53,9 @@ Plug 'tpope/vim-endwise', { 'for': ['elixir'] }
 
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+"
+" More text objects
+Plug 'vim-scripts/argtextobj.vim'
 call plug#end()
 " Then reload init.vim and :PlugInstall to install plugins.
 
@@ -301,6 +304,8 @@ let g:VM_maps["Add Cursor Up"]   = '<M-b>'
 
 let g:scala_scaladoc_indent = 1
 let g:scala_use_default_keymappings = 0
+
+let g:argumentobject_force_toplevel = 0
 
 nnoremap <silent><C-w>- :resize -5<CR>
 nnoremap <silent><C-w>+ :resize +5<CR>
