@@ -81,15 +81,50 @@ alias grep='grep --color'
 alias cp='cp -i'
 alias df='df -h'
 alias rm='rm -v'
-alias gh='cd $(git rev-parse --show-toplevel)'
-alias gd="git branch --merged | grep -ve 'main\|master\|develop\|staging\|\*' >/tmp/merged-branches  && nvim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
-alias n="fd --type f --hidden --exclude .git --exclude target --exclude .metals --exclude .scala-build --exclude .bloop --exclude .bsp --exclude .sbt --exclude .emacs.d --exclude .ivy2 --exclude .docker --exclude .npm --exclude .local --exclude .cache --exclude cache --exclude .Trash --exclude .android --exclude .idea --exclude .zsh_sessions --exclude Caches --exclude Library --exclude Music --exclude Movies | fzf-tmux -p --preview='bat --color=always {}' | xargs nvim"
+alias ghome='cd $(git rev-parse --show-toplevel)'
+alias gdelete="git branch --merged | grep -ve 'main\|master\|develop\|staging\|\*' >/tmp/merged-branches  && nvim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
+alias n="cd && fd --type f --hidden --exclude .git --exclude target --exclude .metals --exclude .scala-build --exclude .bloop --exclude .bsp --exclude .sbt --exclude .emacs.d --exclude .ivy2 --exclude .docker --exclude .npm --exclude .local --exclude .cache --exclude cache --exclude .Trash --exclude .android --exclude .idea --exclude .zsh_sessions --exclude Caches --exclude Library --exclude Music --exclude Movies | fzf-tmux -p --preview='bat --color=always {}' | xargs nvim"
 alias h='nvim -c ":History"'
 alias dps='docker ps --format "table {{.Image}}\t{{.Ports}}\t{{.Names}}"'
 
+abbr g "git"
 abbr r "ranger"
 abbr v 'nvim'
 abbr vim 'nvim'
+
+# git
+abbr ga 'git add'
+abbr gbi 'git bisect'
+abbr gbr 'git branch'
+
+abbr gcan 'git commit --amend --no-edit'
+abbr gca 'git commit --amend'
+abbr gcm 'git commit -m'
+
+abbr gcg 'git config --global'
+abbr gcl 'git config --local'
+
+abbr gcp 'git cherry-pick'
+abbr gco 'git checkout'
+
+abbr gd 'git diff'
+abbr gf 'git fetch'
+abbr gl 'git log'
+abbr gll 'git log --all --decorate --oneline --graph'
+
+abbr gm 'git merge'
+abbr gpul 'git pull'
+abbr gpus 'git push'
+abbr gr 'git rebase'
+abbr gs 'git status'
+
+abbr gstl 'git stash list'
+abbr gsta 'git stash apply'
+abbr gstp 'git stash push -m'
+
+# tmux
+abbr tns 'tmux new -s'
+abbr tls 'tmux ls'
 
 if status is-interactive
     # Commands to run in interactive sessions can go here

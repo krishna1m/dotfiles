@@ -3,7 +3,5 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-[alias]
-  adog = log --all --decorate --oneline --graph
 [pull]
 	ff = only
