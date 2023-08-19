@@ -58,6 +58,17 @@ fish_add_path $HOME/.tmux/plugins/t-smart-tmux-session-manager/bin
 # ~/.config/tmux/plugins
 fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 
+# asdf
+source ~/.asdf/asdf.fish
+# for erlang
+fish_add_path /usr/local/opt/libxslt/bin
+set -gx LDFLAGS "-L/usr/local/opt/libxslt/lib"
+set -gx CPPFLAGS "-I/usr/local/opt/libxslt/include"
+fish_add_path /usr/local/opt/libxslt/bin
+set -gx LDFLAGS "-L/usr/local/opt/libxslt/lib"
+set -gx CPPFLAGS "-I/usr/local/opt/libxslt/include"
+
+
 direnv hook fish | source
 set -g direnv_fish_mode eval_on_arrow    # trigger direnv at prompt, and on every arrow-based directory change (default)
 # set -g direnv_fish_mode eval_after_arrow # trigger direnv at prompt, and only after arrow-based directory changes before executing command
