@@ -178,6 +178,8 @@ augroup MyCursorLineGroup
     au WinLeave * setlocal nocursorline
 augroup end
 
+autocmd TermOpen * setlocal nonumber norelativenumber
+
 " KEY UNMAPPINGS
 map <Space>tm <Nop>
 

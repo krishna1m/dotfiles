@@ -61,12 +61,15 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 -- Float-term
 vim.cmd([[
+let g:floaterm_title = ""
+let g:floaterm_autohide = 2
+let g:floaterm_keymap_toggle = '<C-\>'
 nnoremap <silent><leader>ka :FloatermNew amm<CR>
 nnoremap <silent><leader>ke :FloatermNew iex<CR>
-nnoremap <silent><leader>kn :FloatermNew cd<Space>~/org<Space>&&<Space>nvim<Space>-<CR>
+nnoremap <silent><leader>oe :FloatermNew --wintype=split --height=0.5<CR>
+nnoremap <silent><leader>ko :FloatermNew cd<Space>~/org<Space>&&<Space>nvim<Space>-<CR>
 nnoremap <silent><leader>kr :FloatermNew ranger<CR>
 nnoremap <silent><leader>ks :FloatermNew scala<CR>
-nnoremap <silent><leader>kt :FloatermToggle<CR>
 ]])
 
 -- lsp-colors
