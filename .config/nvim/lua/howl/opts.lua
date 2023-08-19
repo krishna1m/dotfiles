@@ -23,15 +23,15 @@ let g:vimspector_terminal_maxwidth = 70
 
 -- Vimspector
 vim.cmd([[
-nmap 'vl' <cmd>call vimspector#Launch()<cr>
-nmap 'vsr' <cmd>call vimspector#StepOver()<cr>
-nmap 'vst' <cmd>call vimspector#StepOut()<cr>")
-nmap 'vsi' <cmd>call vimspector#StepInto()<cr>")
-nmap 'vr' <cmd>call vimspector#Reset()<cr>
+nmap '<leader>Dl' <cmd>call vimspector#Launch()<cr>
+nmap '<leader>Dso' <cmd>call vimspector#StepOver()<cr>
+nmap '<leader>Dst' <cmd>call vimspector#StepOut()<cr>")
+nmap '<leader>Dsi' <cmd>call vimspector#StepInto()<cr>")
+nmap '<leader>Dr' <cmd>call vimspector#Reset()<cr>
 ]])
-map('n', "Db", ":call vimspector#ToggleBreakpoint()<cr>")
-map('n', "Dw", ":call vimspector#AddWatch()<cr>")
-map('n', "De", ":call vimspector#Evaluate()<cr>")
+map('n', "<leader>Dt", ":call vimspector#ToggleBreakpoint()<cr>")
+map('n', "<leader>Dw", ":call vimspector#AddWatch()<cr>")
+map('n', "<leader>De", ":call vimspector#Evaluate()<cr>")
 
 -- todo-comments
 map("n", "]t", function()
