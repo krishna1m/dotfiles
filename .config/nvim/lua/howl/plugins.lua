@@ -76,6 +76,11 @@ return require('packer').startup(function(use)
 
   -- lsp config for elixir-ls support
   use {'neovim/nvim-lspconfig'}
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim"
+  }
+  use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" }})
 
   use({
     "hrsh7th/nvim-cmp",
