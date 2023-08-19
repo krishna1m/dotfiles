@@ -40,10 +40,11 @@ alias mongod="mongod --dbpath=/Users/manmohankrishna/data/db"
 # git
 set -x GIT_BARE $HOME/repo/bare
 set -x GIT_WORKTREES $HOME/repo/worktrees
-## repo make it ez pz
+# repo make it ez pz
 set -x PATH $HOME/repo $PATH
-## repo make it ez pz
-set -x PATH $HOME/.config/tmux $PATH
+# utils
+set -x PATH $HOME/utils $PATH
+
 
 set -U fish_features qmark-noglob
 
@@ -99,7 +100,6 @@ alias df='df -h'
 alias rm='rm -v'
 alias ghome='cd $(git rev-parse --show-toplevel)'
 alias gdelete="git branch --merged | grep -ve 'main\|master\|develop\|staging\|\*' >/tmp/merged-branches  && nvim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
-alias n="cd && fd --type f --hidden --exclude .git --exclude target --exclude .metals --exclude .scala-build --exclude .bloop --exclude .bsp --exclude .sbt --exclude .emacs.d --exclude .ivy2 --exclude .docker --exclude .npm --exclude .local --exclude .cache --exclude cache --exclude .Trash --exclude .android --exclude .idea --exclude .zsh_sessions --exclude Caches --exclude Library --exclude Music --exclude Movies | fzf-tmux -p --preview='bat --color=always {}' | xargs nvim"
 alias h='nvim -c ":History"'
 alias dps='docker ps --format "table {{.Image}}\t{{.Ports}}\t{{.Names}}"'
 
