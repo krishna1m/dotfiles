@@ -47,6 +47,12 @@ return require('packer').startup(function(use)
   use {'rafamadriz/friendly-snippets'}
   use {'SirVer/ultisnips'}
   use {'honza/vim-snippets'}
+  use({
+    "ThePrimeagen/harpoon",
+    requires = {
+      { "vim-lua/plenary.nvim" },
+    },
+  })
 
   use({
     "folke/trouble.nvim",
