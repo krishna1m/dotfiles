@@ -36,6 +36,8 @@ return require('packer').startup(function(use)
     },
   })
 
+  use {'simrat39/symbols-outline.nvim'}
+  use {'folke/lsp-colors.nvim'}
   use {'voldikss/vim-floaterm'}
 
   use { 'm-demare/hlargs.nvim' ,

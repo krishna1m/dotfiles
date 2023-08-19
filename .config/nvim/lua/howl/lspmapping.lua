@@ -26,6 +26,7 @@ end)
 
 -- all workspace diagnostics
 map("n", "<leader>aa", vim.diagnostic.setqflist)
+map("n", "<leader>as", ':TroubleToggle<CR>')
 
 -- all workspace errors
 map("n", "<leader>ae", function()
