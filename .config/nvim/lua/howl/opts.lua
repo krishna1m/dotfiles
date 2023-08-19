@@ -58,3 +58,10 @@ let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 ]])
+
+-- Float-term
+vim.cmd([[
+nnoremap <silent><leader>kt :FloatermToggle<CR>
+nnoremap <silent><leader>kr :FloatermNew ranger<CR>
+nnoremap <silent><leader>kn :FloatermNew cd<Space>~/org<Space>&&<Space>nvim<Space>-<CR>
+]])
