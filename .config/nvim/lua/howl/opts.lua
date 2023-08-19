@@ -61,7 +61,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 -- Float-term
 vim.cmd([[
-nnoremap <silent><leader>kt :FloatermToggle<CR>
-nnoremap <silent><leader>kr :FloatermNew ranger<CR>
+nnoremap <silent><leader>ka :FloatermNew amm<CR>
+nnoremap <silent><leader>ke :FloatermNew iex<CR>
 nnoremap <silent><leader>kn :FloatermNew cd<Space>~/org<Space>&&<Space>nvim<Space>-<CR>
+nnoremap <silent><leader>kr :FloatermNew ranger<CR>
+nnoremap <silent><leader>ks :FloatermNew scala<CR>
+nnoremap <silent><leader>kt :FloatermToggle<CR>
 ]])
