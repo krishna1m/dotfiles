@@ -36,6 +36,11 @@ return require('packer').startup(function(use)
     },
   })
 
+  use { 'm-demare/hlargs.nvim' ,
+    config = function() require("hlargs").setup {} end
+  }
+  use {'danilamihailov/beacon.nvim'}
+
   use({
     "folke/trouble.nvim",
     requires = {
@@ -43,6 +48,7 @@ return require('packer').startup(function(use)
     },
   })
 
+  use {'RRethy/vim-illuminate'}
   use {'hrsh7th/cmp-nvim-lua'}
   use {'hrsh7th/cmp-nvim-lsp-signature-help'}
   use {'jose-elias-alvarez/null-ls.nvim'}

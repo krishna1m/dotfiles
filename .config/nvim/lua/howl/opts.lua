@@ -43,3 +43,11 @@ end, { desc = "Previous todo comment" })
 map("n", "]t", function()
   require("todo-comments").jump_next({keywords = { "ERROR", "WARNING" }})
 end, { desc = "Next error/warning todo comment" })
+
+-- Beacon
+vim.cmd([[
+let g:beacon_timeout=100
+let g:beacon_fade = 0
+let g:beacon_shrink = 0
+nnoremap <silent>yob :BeaconToggle<CR>
+]])

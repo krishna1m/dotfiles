@@ -177,6 +177,12 @@ augroup netrw_mappings
   au filetype netrw call NetrwMappings()
 augroup END
 
+augroup MyCursorLineGroup
+    autocmd!
+    au WinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup end
+
 " KEY UNMAPPINGS
 map <Space>tm <Nop>
 
