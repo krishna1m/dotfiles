@@ -17,6 +17,8 @@ return require('packer').startup(function(use)
     "williamboman/mason-lspconfig.nvim"
   }
   use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" }})
+  use 'simrat39/rust-tools.nvim'
+  use 'puremourning/vimspector'
 
   use({
     "hrsh7th/nvim-cmp",
@@ -27,6 +29,22 @@ return require('packer').startup(function(use)
     },
   })
 
+  use({
+    "folke/todo-comments.nvim",
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+    },
+  })
+
+  use({
+    "folke/trouble.nvim",
+    requires = {
+      { "nvim-tree/nvim-web-devicons" },
+    },
+  })
+
+  use {'hrsh7th/cmp-nvim-lua'}
+  use {'hrsh7th/cmp-nvim-lsp-signature-help'}
   use {'jose-elias-alvarez/null-ls.nvim'}
   use {'hrsh7th/cmp-buffer'}
   use {'hrsh7th/cmp-path'}
