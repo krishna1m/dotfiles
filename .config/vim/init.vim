@@ -26,7 +26,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'dhruvasagar/vim-dotoo'
 Plug 'easymotion/vim-easymotion'
 Plug 'mbbill/undotree'
-Plug 'msanders/snipmate.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'godlygeek/tabular'
 Plug 'dhruvasagar/vim-table-mode'
@@ -42,10 +41,6 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-
-" For vsnip users.
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
 
 " Elixir
 Plug 'elixir-editors/vim-elixir', { 'for': ['elixir', 'eelixir']}

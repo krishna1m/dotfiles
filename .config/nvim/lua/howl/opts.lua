@@ -51,3 +51,10 @@ let g:beacon_fade = 0
 let g:beacon_shrink = 0
 nnoremap <silent>yob :BeaconToggle<CR>
 ]])
+
+-- UltiSnips
+vim.cmd([[
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+]])

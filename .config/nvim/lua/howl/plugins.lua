@@ -40,6 +40,9 @@ return require('packer').startup(function(use)
     config = function() require("hlargs").setup {} end
   }
   use {'danilamihailov/beacon.nvim'}
+  use {'rafamadriz/friendly-snippets'}
+  use {'SirVer/ultisnips'}
+  use {'honza/vim-snippets'}
 
   use({
     "folke/trouble.nvim",
