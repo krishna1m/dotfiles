@@ -2,7 +2,8 @@ vim.cmd('source ~/.config/vim/init.vim')
 vim.cmd('source ~/.config/vim/bclose.vim')
 require "howl.packerstrap"
 require "howl.plugins"
+require "howl.treesitter"
+require "howl.completions"
+require "howl.lspmapping"
 require "howl.metals"
--- require "howl.options"
--- require "howl.completions"
--- require "howl.lsp"
+require "howl.elixir"
