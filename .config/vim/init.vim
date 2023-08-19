@@ -231,7 +231,6 @@ nnoremap <silent><leader>gw :Gwrite<CR>
 nnoremap <silent><leader>no :NERDTree<CR>
 nnoremap <silent><leader>nf :NERDTreeFind<CR>
 nnoremap <silent><leader>nc :NERDTreeClose<CR>
-nnoremap <silent><leader>nt :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Modified'  :'!',
@@ -268,10 +267,12 @@ nnoremap <silent><leader>sj :%!jq .<CR>
 nnoremap <silent><leader>st :%s/\t/  /g<CR>
 
 " following unimpaired.vim's convention
-nnoremap <silent>yoz :set rnu! nu! smd! ru!<CR>
-nnoremap <silent>you :UndotreeToggle<CR>
 nnoremap <silent>yoi :IndentLinesToggle<CR>
+nnoremap <silent>yon :NERDTreeToggle<CR>
+nnoremap <silent>yor :set rnu!<CR>
 nnoremap <silent>yot :TableModeToggle<CR>
+nnoremap <silent>you :UndotreeToggle<CR>
+nnoremap <silent>yoz :set rnu! nu! smd! ru!<CR>
 
 " tabs
 nnoremap <silent><leader>tc :tabclose<CR>
