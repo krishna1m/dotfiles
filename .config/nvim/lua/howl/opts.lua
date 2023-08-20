@@ -21,17 +21,6 @@ let g:vimspector_bottombar_height = 15
 let g:vimspector_terminal_maxwidth = 70
 ]])
 
--- Vimspector
-vim.cmd([[
-nmap '<leader>Dl' <cmd>call vimspector#Launch()<cr>
-nmap '<leader>Dso' <cmd>call vimspector#StepOver()<cr>
-nmap '<leader>Dst' <cmd>call vimspector#StepOut()<cr>")
-nmap '<leader>Dsi' <cmd>call vimspector#StepInto()<cr>")
-nmap '<leader>Dr' <cmd>call vimspector#Reset()<cr>
-]])
-map('n', "<leader>Dt", ":call vimspector#ToggleBreakpoint()<cr>")
-map('n', "<leader>Dw", ":call vimspector#AddWatch()<cr>")
-map('n', "<leader>De", ":call vimspector#Evaluate()<cr>")
 
 -- todo-comments
 map("n", "]t", function()
