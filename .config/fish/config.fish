@@ -1,3 +1,4 @@
+# cmatrix, cowsay, sl, figlet, fortune, asciiquarium, pv, toilet
 # cmake
 set -x CMAKE_PATH /Applications/CMake.app/Contents/bin
 set -x PATH $CMAKE_PATH $PATH
@@ -45,6 +46,9 @@ set -x PATH $HOME/repo $PATH
 # utils
 set -x PATH $HOME/utils $PATH
 
+function fish_greeting
+    fortune | cowsay
+end
 
 set -U fish_features qmark-noglob
 
