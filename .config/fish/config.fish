@@ -133,7 +133,7 @@ abbr gll 'git log --all --decorate --oneline --graph'
 abbr gm 'git merge'
 abbr gpul 'git pull'
 abbr gpus 'git push'
-abbr gr 'git rebase'
+abbr gr 'git rebase --onto <newbase> <oldbase> <end>'
 abbr gs 'git status'
 
 abbr gsta 'git stash apply'
