@@ -46,9 +46,7 @@ set -x PATH $HOME/repo $PATH
 # utils
 set -x PATH $HOME/utils $PATH
 
-function fish_greeting
-    fortune | cowsay
-end
+set -U fish_greeting
 
 set -U fish_features qmark-noglob
 
