@@ -110,6 +110,12 @@ abbr r "ranger"
 abbr v 'nvim'
 abbr vim 'nvim'
 
+# mix
+# mix deps.get && mix deps.update --all && mix compile && mix elixir_ls.release -o release
+# mix deps.clean --all && mix deps.get
+# mix ecto.drop && mix ecto.create && mix ecto.migrate
+# mix phx.server
+
 # git
 abbr ga 'git add'
 abbr gb 'git branch'

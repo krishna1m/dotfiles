@@ -141,12 +141,12 @@ require("symbols-outline").setup(symbolopts)
 
 -- Harpoon
 vim.cmd([[
-nnoremap <silent><leader>hf :lua require("harpoon.mark").add_file()<CR>
+nnoremap <silent><leader>hh :lua require("harpoon.mark").add_file()<CR>
 nnoremap <silent>yom :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <silent><leader>ha :lua require("harpoon.ui").nav_file(1)<CR>
-nnoremap <silent><leader>hb :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <silent><leader>hc :lua require("harpoon.ui").nav_file(3)<CR>
-nnoremap <silent><leader>hd :lua require("harpoon.ui").nav_file(4)<CR>
-nnoremap <silent><leader>hn :lua require("harpoon.ui").nav_next()<CR>
-nnoremap <silent><leader>hp :lua require("harpoon.ui").nav_prev()<CR>
+nnoremap <silent><leader>hs :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <silent><leader>hd :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <silent><leader>hf :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <silent><leader>hj :lua require("harpoon.ui").nav_next()<CR>
+nnoremap <silent><leader>hk :lua require("harpoon.ui").nav_prev()<CR>
 ]])
