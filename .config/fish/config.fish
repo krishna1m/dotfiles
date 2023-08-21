@@ -112,8 +112,8 @@ abbr vim 'nvim'
 
 # git
 abbr ga 'git add'
+abbr gb 'git branch'
 abbr gbi 'git bisect'
-abbr gbr 'git branch'
 
 abbr gcan 'git commit --amend --no-edit'
 abbr gca 'git commit --amend'
@@ -127,13 +127,14 @@ abbr gco 'git checkout'
 
 abbr gd 'git diff'
 abbr gf 'git fetch'
-abbr gl 'git log'
+abbr gls 'git log --oneline | head -5'
 abbr gll 'git log --all --decorate --oneline --graph'
 
 abbr gm 'git merge'
 abbr gpul 'git pull'
 abbr gpus 'git push'
-abbr gr 'git rebase --onto <newbase> <oldbase> <end>'
+abbr gri 'git rebase -i'
+abbr grl 'git rebase --onto <newbase> <oldbase> <end>'
 abbr gs 'git status'
 
 abbr gsta 'git stash apply'

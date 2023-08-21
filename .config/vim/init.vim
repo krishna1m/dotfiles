@@ -224,8 +224,9 @@ nnoremap <silent><leader>gb :G blame<CR>
 nnoremap <silent><leader>gca :Commits<CR>
 nnoremap <silent><leader>gcc :BCommits<CR>
 nnoremap <silent><leader>gcd :Gcd<CR>
-" git log
-nnoremap <silent><leader>gl :GV<CR>
+" git log - s stands for simple, l for long
+nnoremap <silent><leader>gls :GV<CR>
+nnoremap <silent><leader>gll :G log --all --decorate --oneline --graph<CR>
 " git log for the current file
 nnoremap <silent><leader>gf :GV!<CR>
 nnoremap <silent><leader>gp :G push<CR>
