@@ -200,7 +200,10 @@ nnoremap <silent><leader>cf :let @*=printf('file:%s:%d', expand('%:p') , line('.
 " insert date
 nnoremap <silent><leader>da :put =strftime('* %a %Y-%m-%d %H:%M:%S%z')<CR>
 
-nnoremap <silent><leader>dv :Gvdiffsplit<CR>
+nnoremap <silent><leader>dv :Gvdiffsplit!<CR>
+" cool-a** bindings for merge conflicts
+" execute 'nnoremap <buffer> <silent> d2o :diffget '.nr2.'<Bar>diffupdate<CR>'
+" execute 'nnoremap <buffer> <silent> d3o :diffget '.nr3.'<Bar>diffupdate<CR>
 
 " fuzzy fuzzy
 nnoremap <silent><leader>fb :Buffers<CR>
@@ -297,6 +300,9 @@ nnoremap <silent><leader>tc :BTags<CR>
 nnoremap <silent><leader>tv <C-w>t<C-w>H
 nnoremap <silent><leader>th <C-w>t<C-w>K
 
+" keep only this window
+nnoremap <silent><leader>wo :only<CR>
+
 let g:VM_maps = {}
 let g:VM_maps["Add Cursor Down"] = '<M-f>'
 let g:VM_maps["Add Cursor Up"]   = '<M-b>'
@@ -363,4 +369,3 @@ endfun
 fun! NetrwMappings()
   nnoremap <silent><buffer><C-l> :wincmd l<CR>
 endfun
-
