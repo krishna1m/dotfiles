@@ -1,4 +1,4 @@
-# cmatrix, cowsay, sl, figlet, fortune, asciiquarium, pv, toilet
+# cmatrix, cowsay, sl, fortune, asciiquarium, pv, toilet
 # cmake
 set -x CMAKE_PATH /Applications/CMake.app/Contents/bin
 set -x PATH $CMAKE_PATH $PATH
