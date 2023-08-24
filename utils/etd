@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ $# -lt 1 ]; then
+  echo 'Pass an epoch timestamp'
+  exit 1
+else
+  timestamp=$1
+  date -r `echo $((timestamp/1000))`
+fi
