@@ -202,8 +202,8 @@ nnoremap <silent><leader>da :put =strftime('* %a %Y-%m-%d %H:%M:%S%z')<CR>
 
 nnoremap <silent><leader>dv :Gvdiffsplit!<CR>
 " cool-a** bindings for merge conflicts
-" execute 'nnoremap <buffer> <silent> d2o :diffget '.nr2.'<Bar>diffupdate<CR>'
-" execute 'nnoremap <buffer> <silent> d3o :diffget '.nr3.'<Bar>diffupdate<CR>
+" execute 'nnoremap <buffer> <silent> d2o :diffget '.nr2.'<Bar>diffupdate<CR>' left
+" execute 'nnoremap <buffer> <silent> d3o :diffget '.nr3.'<Bar>diffupdate<CR>' right
 
 " fuzzy fuzzy
 nnoremap <silent><leader>fb :Buffers<CR>
