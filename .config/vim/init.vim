@@ -96,7 +96,7 @@ set wildignore=\*.git/\*
 set wildmode=longest:full,full 
 set complete=.,w,b,u,t 
 set completeopt=longest,menuone 
-set foldmethod=syntax foldlevel=1
+set foldmethod=syntax foldlevel=99
 set splitbelow splitright 
 set nrformats+=alpha 
 set lazyredraw 
@@ -302,6 +302,8 @@ nnoremap <silent><leader>tc :BTags<CR>
 " Reorient windows between vertical and horizontal
 nnoremap <silent><leader>tv <C-w>t<C-w>H
 nnoremap <silent><leader>th <C-w>t<C-w>K
+
+nnoremap <silent><leader>wz <C-w>_<C-w><Bar>
 
 let g:VM_maps = {}
 let g:VM_maps["Add Cursor Down"] = '<M-f>'
