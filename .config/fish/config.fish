@@ -14,7 +14,8 @@ set -x PATH $COURSIER_PATH $PATH
 # cargo
 set -x CARGO_ENV $HOME/opt/.cargo/env
 set -x CARGO_BIN $HOME/opt/.cargo/bin
-set -x PATH $CARGO_ENV $CARGO_BIN $PATH
+set -x CARGO_BIN_2 $HOME/.cargo/bin
+set -x PATH $CARGO_ENV $CARGO_BIN $CARGO_BIN_2 $PATH
 
 # golang
 set -x GO_PATH $HOME/opt/go/bin
