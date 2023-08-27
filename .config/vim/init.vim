@@ -123,7 +123,7 @@ set statusline=%#Search#\ %{expand('%:t')}\ %m%r\ %#DiffChange#\ %{gitbranch#nam
 syntax enable
 filetype plugin on
 filetype plugin indent on
-autocmd VimEnter * IndentLinesDisable
+autocmd BufEnter,VimEnter,InsertEnter,WinLeave * IndentLinesDisable
 autocmd InsertEnter * set nornu
 autocmd InsertLeave * set rnu
 
