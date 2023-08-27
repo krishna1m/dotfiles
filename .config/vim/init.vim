@@ -303,9 +303,6 @@ nnoremap <silent><leader>tc :BTags<CR>
 nnoremap <silent><leader>tv <C-w>t<C-w>H
 nnoremap <silent><leader>th <C-w>t<C-w>K
 
-" keep only this window
-nnoremap <silent><leader>wo :only<CR>
-
 let g:VM_maps = {}
 let g:VM_maps["Add Cursor Down"] = '<M-f>'
 let g:VM_maps["Add Cursor Up"]   = '<M-b>'
