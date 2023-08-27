@@ -5,3 +5,5 @@
 	smudge = git-lfs smudge -- %f
 [pull]
 	ff = only
+[user]
+	name = Manmohan Krishna
