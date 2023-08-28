@@ -135,6 +135,7 @@ abbr gco 'git checkout'
 abbr gcot 'git checkout --track'
 
 abbr gd 'git diff'
+abbr gds 'git diff --staged'
 abbr gf 'git fetch'
 abbr gfo 'git fetch origin'
 abbr gfop 'git fetch origin --prune'
