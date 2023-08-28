@@ -131,6 +131,7 @@ abbr gcl 'git config --local'
 
 abbr gcp 'git cherry-pick'
 abbr gco 'git checkout'
+abbr gcot 'git checkout --track'
 
 abbr gd 'git diff'
 abbr gf 'git fetch'
