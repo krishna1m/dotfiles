@@ -120,6 +120,7 @@ abbr vim 'nvim'
 # git
 abbr ga 'git add'
 abbr gb 'git branch'
+abbr gbd 'git branch -D'
 abbr gbi 'git bisect'
 
 abbr gcan 'git commit --amend --no-edit'
