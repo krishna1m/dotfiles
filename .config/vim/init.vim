@@ -303,6 +303,9 @@ nnoremap <silent><leader>tc :BTags<CR>
 nnoremap <silent><leader>tv <C-w>t<C-w>H
 nnoremap <silent><leader>th <C-w>t<C-w>K
 
+nnoremap <silent><leader>wn aManmohan<Space>Krishna<Esc>
+nnoremap <silent><leader>wmp akrishna.m.zyw@gmail.com<Esc>
+nnoremap <silent><leader>wmw amanmohan_krishna@apple.com<Esc>
 nnoremap <silent><leader>wz <C-w>_<C-w><Bar>
 
 let g:VM_maps = {}
