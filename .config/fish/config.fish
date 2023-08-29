@@ -107,6 +107,7 @@ alias gdelete="git branch --merged | grep -ve 'main\|master\|develop\|staging\|\
 alias h='nvim -c ":History"'
 alias dps='docker ps --format "table {{.Image}}\t{{.Ports}}\t{{.Names}}"'
 
+abbr nj 'nvim -c "set ft=json" -c "set foldmethod=indent"'
 abbr g "git"
 abbr r "ranger"
 abbr v 'nvim'
