@@ -56,6 +56,7 @@ fzf_key_bindings
 set -x FZF_DEFAULT_OPTS '--layout=reverse'
 set -x BAT_THEME 'gruvbox-dark'
 
+# zoxide aliases - z, zi
 zoxide init fish | source
 # ~/.tmux/plugins
 fish_add_path $HOME/.tmux/plugins/t-smart-tmux-session-manager/bin
