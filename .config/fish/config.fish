@@ -143,6 +143,7 @@ abbr gfo 'git fetch origin'
 abbr gfop 'git fetch origin --prune'
 abbr gls 'git log --oneline | head -5'
 abbr gll 'git log --all --decorate --oneline --graph'
+abbr glb 'git log --oneline --graph --decorate --abbrev-commit <branch1>..<branch2>'
 
 abbr gm 'git merge'
 abbr gpul 'git pull'
