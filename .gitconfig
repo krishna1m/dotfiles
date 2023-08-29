@@ -7,3 +7,5 @@
 	ff = only
 [user]
 	name = Manmohan Krishna
+[init]
+	defaultBranch = main
