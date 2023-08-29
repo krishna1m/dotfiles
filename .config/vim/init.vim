@@ -269,8 +269,14 @@ vnoremap <silent><leader>p "_dP
 nnoremap <silent><leader>sc :Tabularize /,<CR>
 " structure json
 nnoremap <silent><leader>sj :%!jq .<CR>
-nnoremap <silent><leader>smi :set foldmethod=indent<CR>
-nnoremap <silent><leader>sms :set foldmethod=syntax<CR>
+
+" set filetype
+nnoremap <silent><leader>sfj :set ft=json<CR>
+
+" set foldmethod
+nnoremap <silent><leader>szi :set foldmethod=indent<CR>
+nnoremap <silent><leader>szs :set foldmethod=syntax<CR>
+
 " structure by replacing tabs by 2 spaces
 nnoremap <silent><leader>st :%s/\t/  /g<CR>
 
