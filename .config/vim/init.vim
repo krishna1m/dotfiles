@@ -359,6 +359,9 @@ inoremap ^F ^X^F
 inoremap ^D ^X^D
 inoremap ^L ^X^L
 
+" put fullstops intelligently hehe
+inoremap <Space><Space> .
+
 " presentation mode - source .vimrc to undo
 nnoremap <silent><F5> :set nornu nonu nosmd nohid noru signcolumn=no colorcolumn=<CR>
 
