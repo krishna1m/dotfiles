@@ -161,6 +161,7 @@ abbr gstp 'git stash push -m'
 abbr gstpo 'git stash pop'
 
 # tmux
+abbr ta 'tmux attach'
 abbr tns 'tmux new -s'
 abbr tls 'tmux ls'
 
