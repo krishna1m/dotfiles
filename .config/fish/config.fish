@@ -165,6 +165,7 @@ abbr gg 'git status'
 
 # tmux
 abbr ta 'tmux attach'
+abbr tk 'tmux kill-server'
 abbr tns 'tmux new -s'
 abbr tls 'tmux ls'
 
