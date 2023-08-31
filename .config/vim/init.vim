@@ -59,6 +59,7 @@ call plug#end()
 " COLORSCHEMES 
 " colorscheme Papercolor 
 colorscheme gruvbox 
+let g:gruvbox_contrast_dark = 'hard'
 " colorscheme Atelier_SavannaDark
 " colorscheme flattened_dark 
 " colorscheme solarized 
