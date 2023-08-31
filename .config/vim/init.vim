@@ -64,6 +64,7 @@ colorscheme gruvbox
 " colorscheme solarized 
 set bg=dark 
 autocmd ColorScheme * highlight TabLineSel ctermfg=Yellow ctermbg=Black
+highlight Pmenu ctermbg=none guibg=none
 
 " Timeouts
 set notimeout
