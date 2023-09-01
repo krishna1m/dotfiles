@@ -205,15 +205,42 @@ Statusline.complete = function()
   }
 end
 
+Statusline.nogit = function()
+  return table.concat {
+    "%#Search# ",
+    "%{expand('%:t')} ",
+    "%m%r ",
+    lsp(),
+    "%=",
+    "%#LineNr#",
+    " %<%l,%c%V ",
+    "%P ", 
+    "[%{&ff}] ",
+    "%y ",
+    "(%{strftime(\"%m/%d %H:%M\",getftime(expand(\"%:p\")))}) ",
+  }
+end
+
 function Statusline.short()
   return "%#StatusLineNC#   Tree"
 end
 
+MyGitFunction = function()
+  local handle = io.popen('git rev-parse --is-inside-work-tree')
+  local output = handle:read('*a')
+  local format = output:gsub('[\n\r]', '')
+  if(format == "true") then
+    return Statusline.complete()
+  else
+    return Statusline.nogit()
+  end
+end
+
 vim.api.nvim_exec([[
-  set statusline=%!v:lua.Statusline.complete()
   augroup Statusline
   au!
-  au WinEnter,BufEnter,FileType nerdtree setlocal statusline=%!v:lua.Statusline.short()
+  au WinEnter,BufEnter * setlocal statusline=%!v:lua.MyGitFunction()
+  au WinEnter,BufEnter,FileType nerdtree set statusline=%!v:lua.Statusline.short()
   augroup END
 ]], false)
 
