@@ -144,6 +144,7 @@ au InsertLeave * silent! set nopaste
 
 let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
+au FileType json setlocal foldmethod=indent
 au FileType yaml setlocal foldmethod=indent
 au FileType yml setlocal foldmethod=indent
 au FileType make setl noexpandtab
