@@ -185,7 +185,9 @@ local function lsp()
   return errors .. warnings .. hints .. info .. "%#LineNr#"
 end
 
-Statusline = function()
+Statusline = {}
+
+Statusline.complete = function()
   return table.concat {
     "%#Search# ",
     "%{expand('%:t')} ",
@@ -203,6 +205,15 @@ Statusline = function()
   }
 end
 
+function Statusline.short()
+  return "%#StatusLineNC#   Tree"
+end
+
 vim.api.nvim_exec([[
-  set statusline=%!v:lua.Statusline()
+  set statusline=%!v:lua.Statusline.complete()
+  augroup Statusline
+  au!
+  au WinEnter,BufEnter,FileType nerdtree setlocal statusline=%!v:lua.Statusline.short()
+  augroup END
 ]], false)
+
