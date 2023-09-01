@@ -189,10 +189,10 @@ Statusline = {}
 
 Statusline.complete = function()
   return table.concat {
-    "%#Search# ",
+    "%#TermCursor# ",
     "%{expand('%:t')} ",
     "%m%r ",
-    "%#DiffChange# ",
+    "%#Folded# ",
     "%{gitbranch#name()} ",
     lsp(),
     "%=",
@@ -207,7 +207,7 @@ end
 
 Statusline.nogit = function()
   return table.concat {
-    "%#Search# ",
+    "%#TermCursor# ",
     "%{expand('%:t')} ",
     "%m%r ",
     lsp(),
@@ -226,9 +226,10 @@ function Statusline.short()
 end
 
 MyGitFunction = function()
-  local handle = io.popen('git rev-parse --is-inside-work-tree')
+  local handle = io.popen('git rev-parse --is-inside-work-tree 2>/dev/null')
   local output = handle:read('*a')
   local format = output:gsub('[\n\r]', '')
+  handle:close()
   if(format == "true") then
     return Statusline.complete()
   else
