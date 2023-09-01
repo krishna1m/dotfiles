@@ -66,6 +66,8 @@ let g:gruvbox_contrast_dark = 'hard'
 set bg=dark 
 autocmd ColorScheme * highlight TabLineSel ctermfg=Yellow ctermbg=Black
 highlight Pmenu ctermbg=none guibg=none
+highlight ColorColumn ctermbg=none guibg=none
+highlight SignColumn ctermbg=none guibg=none
 
 " Timeouts
 set notimeout
