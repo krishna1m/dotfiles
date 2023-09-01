@@ -125,6 +125,7 @@ syntax enable
 filetype plugin on
 filetype plugin indent on
 autocmd BufEnter,VimEnter,InsertEnter,WinLeave * IndentLinesDisable
+autocmd BufEnter * silent! lcd %:p:h
 autocmd InsertEnter * set nornu
 autocmd InsertLeave * set rnu
 
