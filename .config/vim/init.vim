@@ -118,7 +118,6 @@ set mouse=
 
 set laststatus=3
 set winbar=%=%m%r\ %{expand('%:t')}
-set statusline=%#Search#\ %{expand('%:t')}\ %m%r\ %#DiffChange#\ %{gitbranch#name()}\ %#LineNr#%=%<%l,%c%V\ %P\ [%{&ff}]\ %y\ (%{strftime(\"%m/%d\ %H:%M\",getftime(expand(\"%:p\")))})\ 
 " DEFAULT STATUSLINE
 " set statusline=%f%h%m%r\ [%{&ff}]\ (%{strftime(\"%H:%M\ %d/%m/%Y\",getftime(expand(\"%:p\")))})%=%l,%c%V\ %P
 
