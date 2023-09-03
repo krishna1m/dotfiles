@@ -1,4 +1,5 @@
 # cmatrix, cowsay, sl, fortune, asciiquarium, pv, toilet
+# fd, ripgrep, ripgrep-all, fzf, pbcopy, pbpaste, sponge, zoxide, ranger
 # cmake
 set -x CMAKE_PATH /Applications/CMake.app/Contents/bin
 set -x PATH $CMAKE_PATH $PATH
