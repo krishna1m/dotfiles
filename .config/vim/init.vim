@@ -198,6 +198,7 @@ nnoremap <silent><leader>l <C-w>p
 " Hitting Ctrl-x will open the file under the cursor as a horizontal split.
 " Hitting Ctrl-v will alternatively open that file as a vertical split.
 nnoremap <silent><leader>bk <Plug>Kwbd
+nnoremap <silent><leader>bo :%bd\|e#<CR>
 nnoremap <silent><leader>bs :w!<CR>
 :let bclose_multiple = 0
 
