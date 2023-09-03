@@ -199,7 +199,6 @@ nnoremap <silent><C-j> :wincmd j<CR>
 " Hitting Ctrl-v will alternatively open that file as a vertical split.
 nnoremap <silent><leader>bk <Plug>Kwbd
 nnoremap <silent><leader>bs :w!<CR>
-nnoremap <silent><leader>cf :let @*=printf('file:%s:%d', expand('%:p') , line('.'))<CR>
 :let bclose_multiple = 0
 
 " insert date
