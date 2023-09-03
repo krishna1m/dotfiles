@@ -1,5 +1,5 @@
 # cmatrix, cowsay, sl, fortune, asciiquarium, pv, toilet
-# fd, ripgrep, ripgrep-all, fzf, pbcopy, pbpaste, sponge, zoxide, ranger
+# fd, ripgrep, ripgrep-all, fzf, pbcopy, pbpaste, sponge, zoxide, ranger, gnupg, neofetch, tldr, httpie, direnv, jq, parallel, bat, exa
 # cmake
 set -x CMAKE_PATH /Applications/CMake.app/Contents/bin
 set -x PATH $CMAKE_PATH $PATH
@@ -169,6 +169,17 @@ abbr ta 'tmux attach'
 abbr tk 'tmux kill-server'
 abbr tns 'tmux new -s'
 abbr tls 'tmux ls'
+
+# gpg --full-generate-key
+# gpg --list-public-keys --keyid-format=long
+# gpg --list-secret-keys --keyid-format=long
+# gpg --export -o <keyname>.key <pub-key>
+# gpg --import <keyname>.key
+# gpg --encrypt --recipient jondoe@gmail.com <unencrypted-file>
+# <secret-file>.gpg created
+# gpg --encrypt --recipient jondoe@gmail.com -o <encrypted> <unencrypted-file>
+# Does the same thing but <encrypted> created
+# gpg -d -o <unencrypted-file> <encrypted>
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
