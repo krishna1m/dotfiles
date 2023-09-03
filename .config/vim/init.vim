@@ -127,7 +127,6 @@ syntax enable
 filetype plugin on
 filetype plugin indent on
 autocmd BufEnter,VimEnter,InsertEnter,WinLeave * IndentLinesDisable
-autocmd BufEnter * silent! lcd %:p:h
 autocmd InsertEnter * set nornu
 autocmd InsertLeave * set rnu
 
@@ -190,9 +189,10 @@ map <Space>tm <Nop>
 
 " KEY MAPPINGS
 nnoremap <silent><C-l> :wincmd l<CR>
-nnoremap <silent><C-h> :wincmd h<CR>
-nnoremap <silent><C-k> :wincmd k<CR>
-nnoremap <silent><C-j> :wincmd j<CR>
+nnoremap <silent><C-h> :NERDTreeClose<CR>:wincmd h<CR>
+nnoremap <silent><C-k> :NERDTreeClose<CR>:wincmd k<CR>
+nnoremap <silent><C-j> :NERDTreeClose<CR>:wincmd j<CR>
+nnoremap <silent><leader>l <C-w>p
 
 " find and list buffers
 " Hitting Ctrl-x will open the file under the cursor as a horizontal split.
@@ -203,6 +203,8 @@ nnoremap <silent><leader>bs :w!<CR>
 
 " insert date
 nnoremap <silent><leader>da :put =strftime('* %a %Y-%m-%d %H:%M:%S%z')<CR>
+
+nnoremap <silent><leader>cd :lcd %:p:h<CR>
 
 " cool-a** bindings for merge conflicts
 " execute 'nnoremap <buffer> <silent> d2o :diffget '.nr2.'<Bar>diffupdate<CR>' left
@@ -254,9 +256,10 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Unknown'   :'𖡄',
                 \ }
 
-autocmd BufEnter NERD_tree_* | execute 'normal R'
+" to reload a nerdtree file, use `R`
 au CursorHold * if exists("t:NerdTreeBufName") | call <SNR>15_refreshRoot() | endif
 
+" never ZQ on a nerdtree window - open using `<leader>no` and close using `<leader>nc`
 augroup DIRCHANGE
     au!
     autocmd DirChanged global :NERDTreeCWD
@@ -285,7 +288,6 @@ nnoremap <silent><leader>st :%s/\t/  /g<CR>
 
 " following unimpaired.vim's convention
 nnoremap <silent>yoi :IndentLinesToggle<CR>
-nnoremap <silent>yon :NERDTreeToggle<CR>
 nnoremap <silent>yor :set rnu!<CR>
 nnoremap <silent>yot :TableModeToggle<CR>
 nnoremap <silent>you :UndotreeToggle<CR>
