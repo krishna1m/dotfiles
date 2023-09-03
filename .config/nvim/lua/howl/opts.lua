@@ -57,7 +57,7 @@ nnoremap <silent><leader>ka :FloatermNew amm<CR>
 nnoremap <silent><leader>ke :FloatermNew iex<CR>
 nnoremap <silent><leader>oe :FloatermNew --wintype=split --height=0.5<CR>
 nnoremap <silent><leader>ko :FloatermNew cd<Space>~/org<Space>&&<Space>nvim<Space>scratch.org<CR>
-nnoremap <silent><leader>kr :FloatermNew ranger<CR>
+nnoremap <silent><leader>. :FloatermNew ranger<CR>
 nnoremap <silent><leader>ks :FloatermNew scala<CR>
 ]])
 
