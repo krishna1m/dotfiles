@@ -6,17 +6,17 @@ local map = vim.keymap.set
 vim.opt_global.completeopt = { "menuone", "noinsert", "noselect" }
 
 -- LSP mappings
-map("n", "gD",  vim.lsp.buf.definition)
-map("n", "gdl", vim.lsp.buf.declaration)
+map("n", "<leader>cd",  vim.lsp.buf.definition)
+map("n", "<leader>ct", vim.lsp.buf.declaration)
 map("n", "K",  vim.lsp.buf.hover)
-map("n", "gm", vim.lsp.buf.implementation)
-map("n", "gr", vim.lsp.buf.references)
-map("n", "gds", vim.lsp.buf.document_symbol)
-map("n", "gws", vim.lsp.buf.workspace_symbol)
-map("n", "<leader>cl", vim.lsp.codelens.run)
-map("n", "<leader>sh", vim.lsp.buf.signature_help)
-map("n", "<leader>rn", vim.lsp.buf.rename)
-map("n", "<leader>fo", vim.lsp.buf.format)
+map("n", "<leader>ci", vim.lsp.buf.implementation)
+map("n", "<leader>cD", vim.lsp.buf.references)
+map("n", "<leader>cj", vim.lsp.buf.document_symbol)
+map("n", "<leader>cJ", vim.lsp.buf.workspace_symbol)
+map("n", "<leader>cll", vim.lsp.codelens.run)
+map("n", "<leader>clhs", vim.lsp.buf.signature_help)
+map("n", "<leader>cr", vim.lsp.buf.rename)
+map("n", "<leader>cl=", vim.lsp.buf.format)
 map("n", "<leader>ca", vim.lsp.buf.code_action)
 map("n", "<leader>of", vim.diagnostic.open_float)
 
@@ -26,7 +26,7 @@ end)
 
 -- all workspace diagnostics
 map("n", "<leader>aa", vim.diagnostic.setqflist)
-map("n", "<leader>as", ':TroubleToggle<CR>')
+map("n", "<leader>cx", ':TroubleToggle<CR>')
 
 -- all workspace errors
 map("n", "<leader>ae", function()
