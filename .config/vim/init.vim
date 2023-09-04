@@ -202,6 +202,9 @@ nnoremap <silent><leader>bo :%bd\|e#<CR>
 nnoremap <silent><leader>bs :w!<CR>
 :let bclose_multiple = 0
 
+" delete trailing whitespace
+nnoremap <silent><leader>cw :%s/\s\+$//g<CR>
+
 " insert date
 nnoremap <silent><leader>da :put =strftime('* %a %Y-%m-%d %H:%M:%S%z')<CR>
 
