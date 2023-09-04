@@ -1,16 +1,16 @@
-" VIM-PLUG 
+" VIM-PLUG
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-" PLUGINS 
-" Make sure you use single quotes 
-" " " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align 
-" Plug 'junegunn/vim-easy-align' 
-" " " Any valid git URL is allowed 
-" Plug 'https://github.com/junegunn/vim-github-dashboard.git' 
-" " Initialize plugin system 
+" PLUGINS
+" Make sure you use single quotes
+" " " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+" Plug 'junegunn/vim-easy-align'
+" " " Any valid git URL is allowed
+" Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+" " Initialize plugin system
 call plug#begin('~/.local/share/nvim/site/plugged')
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-fugitive'
@@ -56,14 +56,14 @@ Plug 'itchyny/vim-gitbranch'
 call plug#end()
 " Then reload init.vim and :PlugInstall to install plugins.
 
-" COLORSCHEMES 
-" colorscheme Papercolor 
-colorscheme gruvbox 
+" COLORSCHEMES
+" colorscheme Papercolor
+colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
 " colorscheme Atelier_SavannaDark
-" colorscheme flattened_dark 
-" colorscheme solarized 
-set bg=dark 
+" colorscheme flattened_dark
+" colorscheme solarized
+set bg=dark
 autocmd ColorScheme * highlight TabLineSel ctermfg=Yellow ctermbg=Black
 highlight Pmenu ctermbg=none guibg=none
 highlight ColorColumn ctermbg=none guibg=none
@@ -80,41 +80,41 @@ let mapleader=" "
 set ts=2 sts=2 sw=2 expandtab
 set ai ci
 set autoread
-set nowrap 
-set nowb 
-set noswapfile 
-set nobackup 
-set nowritebackup 
-set undodir=~/.config/.nvim/undodir 
-set undofile 
-set scrolloff=8 
-set signcolumn=number 
-set rnu nu 
-set hidden 
-set smartcase 
-set ignorecase 
-set nocompatible 
-set wildmenu 
-set wildignorecase 
-set wildignore=\*.git/\* 
-set wildmode=longest:full,full 
-set complete=.,w,b,u,t 
-set completeopt=longest,menuone 
+set nowrap
+set nowb
+set noswapfile
+set nobackup
+set nowritebackup
+set undodir=~/.config/.nvim/undodir
+set undofile
+set scrolloff=8
+set signcolumn=number
+set rnu nu
+set hidden
+set smartcase
+set ignorecase
+set nocompatible
+set wildmenu
+set wildignorecase
+set wildignore=\*.git/\*
+set wildmode=longest:full,full
+set complete=.,w,b,u,t
+set completeopt=longest,menuone
 set foldmethod=syntax foldlevel=99
-set splitbelow splitright 
-set nrformats+=alpha 
-set lazyredraw 
-set showmatch 
-set showcmd 
-set vb 
-set t_vb= 
-set shortmess=atIsc 
-set ru 
-set clipboard=unnamed 
-set wildchar=<Tab> wildmenu wildmode=full 
-set colorcolumn=+1 
-set encoding=utf-8 
-set guioptions=-e 
+set splitbelow splitright
+set nrformats+=alpha
+set lazyredraw
+set showmatch
+set showcmd
+set vb
+set t_vb=
+set shortmess=atIsc
+set ru
+set clipboard=unnamed
+set wildchar=<Tab> wildmenu wildmode=full
+set colorcolumn=+1
+set encoding=utf-8
+set guioptions=-e
 set sessionoptions+=tabpages,globals
 set mouse=
 
@@ -135,7 +135,7 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:indentLine_fileTypeExclude = ["vimwiki", "help", "undotree", "diff"]
 let g:indentLine_bufTypeExclude = ["help", "terminal"]
 
-let g:taboo_tab_format = " %f " 
+let g:taboo_tab_format = " %f "
 let g:taboo_renamed_tab_format = " [%l] "
 
 au FocusGained,BufEnter * :checktime
@@ -150,15 +150,15 @@ au FileType make setl noexpandtab
 au BufNewFile,BufRead *.org set ft=dotoo
 
 
-if has("persistent_undo") 
+if has("persistent_undo")
   let target_path = expand('~/.config/.nvim/undodir')
-  " create the directory and any parent directories 
-  " if the location does not exist. 
-  if !isdirectory(target_path) 
-    call mkdir(target_path, "p", 0700) 
+  " create the directory and any parent directories
+  " if the location does not exist.
+  if !isdirectory(target_path)
+    call mkdir(target_path, "p", 0700)
   endif
-  let &undodir=target_path 
-  set undofile 
+  let &undodir=target_path
+  set undofile
 endif
 
 " DOTOO
