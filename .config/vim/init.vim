@@ -147,7 +147,8 @@ au FileType json setlocal foldmethod=indent
 au FileType yaml setlocal foldmethod=indent
 au FileType yml setlocal foldmethod=indent
 au FileType make setl noexpandtab
-au BufNewFile,BufRead *.org set ft=dotoo
+au BufEnter,BufNewFile,BufRead *.mjml set ft=xml foldmethod=indent
+au BufEnter,BufNewFile,BufRead *.org set ft=dotoo
 
 
 if has("persistent_undo")
