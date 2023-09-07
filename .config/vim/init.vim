@@ -149,6 +149,7 @@ au FileType yml setlocal foldmethod=indent
 au FileType make setl noexpandtab
 au BufEnter,BufNewFile,BufRead *.mjml set ft=xml foldmethod=indent
 au BufEnter,BufNewFile,BufRead *.org set ft=dotoo
+au BufEnter,BufNewFile,BufRead *.envrc set ft=bash
 
 
 if has("persistent_undo")
