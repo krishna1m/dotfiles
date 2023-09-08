@@ -312,7 +312,7 @@ nmap <silent><Tab> :tabnext<CR>
 
 " Tags
 nnoremap <silent><leader>ta :Tags<CR>
-nnoremap <silent><leader>tc :BTags<CR>
+nnoremap <silent><leader>tb :BTags<CR>
 
 " Reorient windows between vertical and horizontal
 nnoremap <silent><leader>tv <C-w>t<C-w>H
