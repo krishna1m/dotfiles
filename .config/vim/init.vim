@@ -89,7 +89,7 @@ set undodir=~/.config/.nvim/undodir
 set undofile
 set scrolloff=8
 set signcolumn=number
-set rnu nu
+set nornu nonu
 set hidden
 set smartcase
 set ignorecase
@@ -127,8 +127,6 @@ syntax enable
 filetype plugin on
 filetype plugin indent on
 autocmd BufEnter,VimEnter,InsertEnter,WinLeave * IndentLinesDisable
-autocmd InsertEnter * set nornu
-autocmd InsertLeave * set rnu
 
 let g:indentLine_defaultGroup = 'SpecialKey'
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
