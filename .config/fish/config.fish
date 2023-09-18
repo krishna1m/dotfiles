@@ -39,6 +39,10 @@ set -x MONGO_PATH $HOME/opt/mongodb/bin
 set -x PATH $MONGO_PATH $PATH
 alias mongod="mongod --dbpath=/Users/manmohankrishna/data/db"
 
+if [ -f $HOME/.config/fish/alias.fish ]
+  source $HOME/.config/fish/alias.fish
+end
+
 # git
 set -x GIT_BARE $HOME/repo/bare
 set -x GIT_WORKTREES $HOME/repo/worktrees
@@ -106,6 +110,7 @@ alias ghome='cd $(git rev-parse --show-toplevel)'
 alias gdelete="git branch --merged | grep -ve 'main\|master\|develop\|staging\|\*' >/tmp/merged-branches  && nvim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
 alias h='nvim -c ":History"'
 alias dps='docker ps --format "table {{.Image}}\t{{.Ports}}\t{{.Names}}"'
+alias dsr='docker stop $(docker ps -aq) && docker rm -v $(docker ps -aq)'
 
 abbr nj 'nvim -c "set ft=json" -c "set foldmethod=indent"'
 abbr g "git"
