@@ -54,6 +54,17 @@ return require('packer').startup(function(use)
     },
   })
 
+  require("packer").startup(function(use)
+    use {
+      'huggingface/llm.nvim',
+      config = function()
+        require('llm').setup({
+          -- cf Setup
+        })
+      end
+    }
+  end)
+
   use({
     "folke/trouble.nvim",
     requires = {
