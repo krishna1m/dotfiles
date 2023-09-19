@@ -1,5 +1,5 @@
-# cmatrix, cowsay, sl, fortune, asciiquarium, pv, toilet
-# fd, ripgrep, ripgrep-all, fzf, pbcopy, pbpaste, sponge, zoxide, ranger, gnupg, neofetch, tldr, httpie, direnv, jq, parallel, bat, exa
+# fun commands - cmatrix, cowsay, sl, fortune, asciiquarium, pv, toilet
+# useful commands - fd, ripgrep, ripgrep-all, fzf, pbcopy, pbpaste, sponge, zoxide, ranger, gnupg, neofetch, tldr, httpie, direnv, jq, parallel, bat, exa, pcre2
 # cmake
 set -x CMAKE_PATH /Applications/CMake.app/Contents/bin
 set -x PATH $CMAKE_PATH $PATH
@@ -102,12 +102,16 @@ alias ll='exa --group-directories-first -lhart accessed'
 alias tree='exa --tree'
 alias less='less --incsearch --save-marks'
 alias rd='less -NS'
-alias grep='grep --color'
+alias grep='pcre2grep --color'
 alias cp='cp -i'
 alias df='df -h'
 alias rm='rm -v'
+alias gcoi="git branch | fzf-tmux -p | xargs git checkout"
 alias ghome='cd $(git rev-parse --show-toplevel)'
-alias gdelete="git branch --merged | grep -ve 'main\|master\|develop\|staging\|\*' >/tmp/merged-branches  && nvim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
+alias gdeletel="git fetch --all && git branch --merged | sort | sed \$d >/tmp/merged-branches && echo '$(tput setaf 1)WARNING: $(tput setaf 6)keep only those branches that you want DELETED$(tput sgr0)' && sleep 3 && nvim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
+alias gdeleter="git fetch --all && git branch -r --merged | pcre2grep 'mk/' | pcre2grep -v 'origin|main|master|develop|staging' | sed 's/mk\///' >/tmp/merged-branches && echo '$(tput setaf 1)WARNING: $(tput setaf 6)keep only those branches that you want DELETED$(tput sgr0)' && sleep 3 && nvim /tmp/merged-branches && xargs git push -d mk </tmp/merged-branches"
+alias gfetch="git fetch --all"
+alias gprune="git fetch --all --prune"
 alias h='nvim -c ":History"'
 alias dps='docker ps --format "table {{.Image}}\t{{.Ports}}\t{{.Names}}"'
 alias dsr='docker stop $(docker ps -aq) && docker rm -v $(docker ps -aq)'
@@ -127,6 +131,9 @@ abbr vim 'nvim'
 # git
 abbr ga 'git add'
 abbr gb 'git branch'
+abbr gbr 'git branch --remote'
+abbr gbc 'git branch -a --contains <commit-sha>'
+abbr ggrep 'git rev-list --all | xargs git grep -iE <expression>'
 abbr gbd 'git branch -D'
 abbr gbi 'git bisect'
 
@@ -153,8 +160,6 @@ abbr gcp 'git cherry-pick'
 abbr gd 'git diff'
 abbr gds 'git diff --staged'
 abbr gf 'git fetch'
-abbr gfo 'git fetch origin'
-abbr gfop 'git fetch origin --prune'
 abbr gls 'git log --oneline | head -5'
 abbr gll 'git log --all --decorate --oneline --graph'
 abbr glb 'git log --oneline --graph --decorate --abbrev-commit <branch1>..<branch2>'
