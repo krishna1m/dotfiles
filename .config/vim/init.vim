@@ -73,7 +73,6 @@ highlight SignColumn ctermbg=none guibg=none
 set notimeout
 set ttimeout
 set ttimeoutlen=10
-set timeoutlen=500
 
 " GENERAL SETTINGS
 let mapleader=" "
@@ -117,6 +116,11 @@ set encoding=utf-8
 set guioptions=-e
 set sessionoptions+=tabpages,globals
 set mouse=
+set fileformats+=mac
+if &history < 1000
+  set history=1000
+endif
+set sessionoptions-=options
 
 set laststatus=3
 set winbar=%#VisualNC#\ %=%m%r\ %{expand('%:t')}

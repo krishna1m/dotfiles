@@ -199,5 +199,5 @@ end
 # The original version is saved in $HOME/.config/fish/config.fish.pysave
 set -x PATH "/Library/Frameworks/Python.framework/Versions/3.11/bin" "$PATH"
 
-# opam configuration - `opam install ocaml-lsp-server`
+# opam configuration - `opam install dune merlin ocaml-lsp-server odoc ocamlformat utop dune-release`
 source /Users/manmohankrishna/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
