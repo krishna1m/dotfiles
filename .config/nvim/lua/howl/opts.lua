@@ -1,4 +1,6 @@
 local map = vim.keymap.set
+-- delete text with 'x' without changing the internal register
+map({ 'n', 'x' }, 'x', '"_x')
 vim.api.nvim_set_option('updatetime', 100) 
 
 -- Fixed column for diagnostics to appear
