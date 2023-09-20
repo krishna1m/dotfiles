@@ -295,6 +295,7 @@ nnoremap <silent><leader>szs :set foldmethod=syntax<CR>
 nnoremap <silent><leader>st :%s/\t/  /g<CR>
 
 " following unimpaired.vim's convention
+nnoremap <silent>yoe :LLMToggleAutoSuggest<CR>
 nnoremap <silent>yoi :IndentLinesToggle<CR>
 nnoremap <silent>yor :set rnu!<CR>
 nnoremap <silent>yot :TableModeToggle<CR>
