@@ -105,6 +105,12 @@ return require('packer').startup(function(use)
     disable_filetype = { "vim" },
   })
 
+  -- use({
+  --   "nvim-treesitter/nvim-treesitter-textobjects",
+  --   after = "nvim-treesitter",
+  --   requires = "nvim-treesitter/nvim-treesitter",
+  -- })
+
   -- If you want insert `(` after select function or method item
   local cmp_autopairs = require('nvim-autopairs.completion.cmp')
   local cmp = require('cmp')
