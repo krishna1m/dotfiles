@@ -48,10 +48,11 @@ Plug 'tpope/vim-endwise', { 'for': ['elixir'] }
 
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-"
+
 " More text objects
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'bkad/CamelCaseMotion'
+
 Plug 'itchyny/vim-gitbranch'
 call plug#end()
 " Then reload init.vim and :PlugInstall to install plugins.
@@ -212,7 +213,7 @@ nnoremap <silent><leader>cw :%s/\s\+$//g<CR>
 " insert date
 nnoremap <silent><leader>da :put =strftime('* %a %Y-%m-%d %H:%M:%S%z')<CR>
 
-" nnoremap <silent><leader>cd :lcd %:p:h<CR>
+nnoremap <silent><leader>cd :lcd %:p:h<CR>
 
 " cool-a** bindings for merge conflicts
 " execute 'nnoremap <buffer> <silent> d2o :diffget '.nr2.'<Bar>diffupdate<CR>' left
