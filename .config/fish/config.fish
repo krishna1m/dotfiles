@@ -1,5 +1,5 @@
 # fun commands - cmatrix, cowsay, sl, fortune, asciiquarium, pv, toilet
-# useful commands - fd, ripgrep, ripgrep-all, fzf, pbcopy, pbpaste, sponge, zoxide, ranger, gnupg, neofetch, tldr, httpie, direnv, jq, parallel, bat, exa, pcre2
+# useful packages - fd, ripgrep, ripgrep-all, fzf, pbcopy, pbpaste, sponge, zoxide, ranger, gnupg, neofetch, tldr, httpie, direnv, jq, parallel, bat, exa, pcre2, bats-core
 # cmake
 set -x CMAKE_PATH /Applications/CMake.app/Contents/bin
 set -x PATH $CMAKE_PATH $PATH
