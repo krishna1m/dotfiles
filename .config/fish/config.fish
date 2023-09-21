@@ -106,6 +106,7 @@ alias grep='pcre2grep --color'
 alias cp='cp -i'
 alias df='df -h'
 alias rm='rm -v'
+alias jq='jq -C'
 alias gcoi="git branch | fzf-tmux -p | xargs git checkout"
 alias ghome='cd $(git rev-parse --show-toplevel)'
 alias gdeletel="git fetch --all && git branch --merged | sort | sed \$d >/tmp/merged-branches && echo '$(tput setaf 1)WARNING: $(tput setaf 6)keep only those branches that you want DELETED$(tput sgr0)' && sleep 3 && nvim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
