@@ -1,5 +1,6 @@
 # fun commands - cmatrix, cowsay, sl, fortune, asciiquarium, pv, toilet
-# useful packages - fd, ripgrep, ripgrep-all, fzf, pbcopy, pbpaste, sponge, zoxide, ranger, gnupg, neofetch, tldr, httpie, direnv, jq, parallel, bat, exa, pcre2, bats-core
+# useful packages - fd, ripgrep, ripgrep-all, fzf, pbcopy, pbpaste, sponge, zoxide, ranger, gnupg, neofetch, tealdeer, httpie, direnv, jq, parallel, bat, exa, pcre2, bats-core, git-delta, gh
+# useful packages (continued)- `brew install noahgorstein/tap/jqp`
 # cmake
 set -x CMAKE_PATH /Applications/CMake.app/Contents/bin
 set -x PATH $CMAKE_PATH $PATH
@@ -57,7 +58,7 @@ set -U fish_features qmark-noglob
 
 fish_vi_key_bindings
 fzf_key_bindings
-set -x FZF_DEFAULT_OPTS '--layout=reverse'
+set -x FZF_DEFAULT_OPTS '--layout=reverse --preview-window=down --bind up:preview-up,down:preview-down'
 set -x BAT_THEME 'gruvbox-dark'
 
 # zoxide aliases - z, zi
@@ -107,7 +108,9 @@ alias cp='cp -i'
 alias df='df -h'
 alias rm='rm -v'
 alias jq='jq -C'
-alias gcoi="git branch | fzf-tmux -p | xargs git checkout"
+# alias tldrf='tldr --list | fzf-tmux -p 90%,90% --preview='tldr --color=always {1}' | xargs tldr'
+alias tldrs="tldr --list | fzf-tmux -p 90%,90% --preview 'tldr --color=always {1}' | xargs tldr"
+alias gcoi="git branch --sort=-committerdate | fzf-tmux -p 90%,90% --preview='git diff --color=always {1} | delta' | xargs git checkout"
 alias ghome='cd $(git rev-parse --show-toplevel)'
 alias gdeletel="git fetch --all && git branch --merged | sort | sed \$d >/tmp/merged-branches && echo '$(tput setaf 1)WARNING: $(tput setaf 6)keep only those branches that you want DELETED$(tput sgr0)' && sleep 3 && nvim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
 alias gdeleter="git fetch --all && git branch -r --merged | pcre2grep 'mk/' | pcre2grep -v 'origin|main|master|develop|staging' | sed 's/mk\///' >/tmp/merged-branches && echo '$(tput setaf 1)WARNING: $(tput setaf 6)keep only those branches that you want DELETED$(tput sgr0)' && sleep 3 && nvim /tmp/merged-branches && xargs git push -d mk </tmp/merged-branches"
@@ -174,6 +177,13 @@ abbr grl 'git rebase --onto <newbase> <oldbase> <end>'
 abbr grr 'git rebase --continue'
 abbr grv 'git remote -v'
 abbr gg 'git status'
+
+# github cli
+alias ghprcv="GH_FORCE_TTY=100% gh pr list | fzf --ansi --header-lines 3 --preview 'GH_FORCE_TTY=100% gh pr view {1}' | awk '{print $1}' | xargs gh pr checkout"
+alias ghprcd="GH_FORCE_TTY=100% gh pr list | fzf --ansi --header-lines 3 --preview 'GH_FORCE_TTY=100% gh pr diff {1} | delta' | awk '{print $1}' | xargs gh pr checkout"
+abbr ghb "gh browse"
+abbr ghs "gh search"
+
 
 # tmux
 abbr ta 'tmux attach'

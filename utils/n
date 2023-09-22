@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ $# -lt 1 ]; then
-  cd && fd --type f --hidden | fzf-tmux -p --preview='bat --color=always {}' | xargs nvim
+  cd && fd --type f --hidden | fzf-tmux -p 90%,90% --preview='bat --style=numbers --line-range :300 --color=always {}' | xargs nvim
 else
   nvim "$@"
 fi
