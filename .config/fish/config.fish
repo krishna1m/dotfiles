@@ -108,7 +108,6 @@ alias cp='cp -i'
 alias df='df -h'
 alias rm='rm -v'
 alias jq='jq -C'
-# alias tldrf='tldr --list | fzf-tmux -p 90%,90% --preview='tldr --color=always {1}' | xargs tldr'
 alias tldrs="tldr --list | fzf-tmux -p 90%,90% --preview 'tldr --color=always {1}' | xargs tldr"
 alias gcoi="git branch --sort=-committerdate | fzf-tmux -p 90%,90% --preview='git diff --color=always {1} | delta' | xargs git checkout"
 alias ghome='cd $(git rev-parse --show-toplevel)'
@@ -119,8 +118,9 @@ alias gprune="git fetch --all --prune"
 alias h='nvim -c ":History"'
 alias dps='docker ps --format "table {{.Image}}\t{{.Ports}}\t{{.Names}}"'
 alias dsr='docker stop $(docker ps -aq) && docker rm -v $(docker ps -aq)'
+alias pkillf="ps -rmef | sed 1d | fzf-tmux -p 90%,90% | awk '{print $2}' | xargs kill -9"
 
-abbr nj 'nvim -c "set ft=json" -c "set foldmethod=indent"'
+alias nj 'nvim -c "set ft=json" -c "set foldmethod=indent"'
 abbr g "git"
 abbr r "ranger"
 abbr v 'nvim'
