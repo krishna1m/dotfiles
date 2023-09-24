@@ -1,6 +1,6 @@
 # fun commands - cmatrix, cowsay, sl, fortune, asciiquarium, pv, toilet
 # useful packages - fd, ripgrep, ripgrep-all, fzf, pbcopy, pbpaste, sponge, zoxide, ranger, gnupg, neofetch, tealdeer, httpie, direnv, jq, parallel, bat, exa, pcre2, bats-core, git-delta, gh
-# useful packages (continued)- `brew install noahgorstein/tap/jqp`, sdkman
+# useful packages (continued)- `brew install noahgorstein/tap/jqp`
 # cmake
 set -x CMAKE_PATH /Applications/CMake.app/Contents/bin
 set -x PATH $CMAKE_PATH $PATH
@@ -211,3 +211,9 @@ set -x PATH "/Library/Frameworks/Python.framework/Versions/3.11/bin" "$PATH"
 
 # opam configuration - `opam install dune merlin ocaml-lsp-server odoc ocamlformat utop dune-release`
 source /Users/manmohankrishna/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+
+# fisher list
+# jorgebucaran/fisher
+# ilancosman/tide@v5
+# jorgebucaran/nvm.fish
+# edc/bass
