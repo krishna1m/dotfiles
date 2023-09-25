@@ -1,6 +1,6 @@
 # fun commands - cmatrix, cowsay, sl, fortune, asciiquarium, pv, toilet
 # useful packages - fd, ripgrep, ripgrep-all, fzf, pbcopy, pbpaste, sponge, zoxide, ranger, gnupg, neofetch, tealdeer, httpie, direnv, jq, parallel, bat, exa, pcre2, bats-core, git-delta, gh
-# useful packages (continued)- `brew install noahgorstein/tap/jqp`
+# useful packages (continued)- `brew install noahgorstein/tap/jqp`, pyenv
 # cmake
 set -x CMAKE_PATH /Applications/CMake.app/Contents/bin
 set -x PATH $CMAKE_PATH $PATH
@@ -39,6 +39,13 @@ set -x PATH $KAFKA_PATH $PATH
 set -x MONGO_PATH $HOME/opt/mongodb/bin
 set -x PATH $MONGO_PATH $PATH
 alias mongod="mongod --dbpath=/Users/manmohankrishna/data/db"
+
+# python
+set -x PYENV_PATH $HOME/.pyenv/bin
+set -x PATH $PYENV_PATH $PATH
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 
 if [ -f $HOME/.config/fish/alias.fish ]
   source $HOME/.config/fish/alias.fish
