@@ -45,6 +45,10 @@ set -x PYENV_PATH $HOME/.pyenv/bin
 set -x PATH $PYENV_PATH $PATH
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+# vf new -p python3.8 <envname>
+# vf activate <envname>
+# vf deactivate
+
 
 
 if [ -f $HOME/.config/fish/alias.fish ]
