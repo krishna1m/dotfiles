@@ -164,6 +164,7 @@ abbr gczd 'git stash drop'
 abbr gczl 'git stash list'
 abbr gczz 'git stash push -m'
 abbr gczp 'git stash pop'
+abbr gczs 'git stash show -p'
 
 abbr gcm 'git merge'
 abbr gcob 'git checkout -b'
