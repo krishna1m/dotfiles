@@ -152,7 +152,7 @@ abbr gbd 'git branch -D'
 abbr gbi 'git bisect'
 
 abbr gca 'git commit --amend'
-abbr gcc 'git commit -m'
+abbr gcc 'git commit'
 abbr gce 'git commit --amend --no-edit'
 
 abbr gcg 'git config --global'

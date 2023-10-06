@@ -42,6 +42,8 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 
+Plug 'Olical/conjure'
+
 " Elixir
 Plug 'elixir-editors/vim-elixir', { 'for': ['elixir', 'eelixir']}
 Plug 'tpope/vim-endwise', { 'for': ['elixir'] }
@@ -77,6 +79,7 @@ set ttimeoutlen=10
 
 " GENERAL SETTINGS
 let mapleader=" "
+let maplocalleader=","
 set ts=2 sts=2 sw=2 expandtab
 set ai ci
 set autoread
