@@ -158,13 +158,23 @@ abbr gce 'git commit --amend --no-edit'
 abbr gcg 'git config --global'
 abbr gcl 'git config --local'
 
+# stash staged and unstaged changes
+abbr gcz 'git stash'
+# stash staged, unstaged and untracked changes
+abbr gczu 'git stash -u'
 abbr gcza 'git stash apply'
 abbr gczc 'git stash clear'
 abbr gczd 'git stash drop'
 abbr gczl 'git stash list'
 abbr gczz 'git stash push -m'
 abbr gczp 'git stash pop'
-abbr gczs 'git stash show -p'
+abbr gczsp 'git stash show -p'
+# stash staged and unstaged changes - keep the staged changes in working tree
+abbr gczk 'git stash --keep-index'
+# stash staged, unstaged and untracked changes - keep the staged changes in working tree
+abbr gczku 'git stash --keep-index -u'
+# stash only staged changes
+abbr gczss 'git stash -S'
 
 abbr gcm 'git merge'
 abbr gcob 'git checkout -b'
