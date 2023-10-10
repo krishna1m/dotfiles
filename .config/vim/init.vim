@@ -43,6 +43,7 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 
 Plug 'Olical/conjure'
+Plug 'Olical/aniseed'
 
 " Elixir
 Plug 'elixir-editors/vim-elixir', { 'for': ['elixir', 'eelixir']}
