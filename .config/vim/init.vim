@@ -45,6 +45,8 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'Olical/conjure'
 Plug 'Olical/aniseed'
 
+Plug 'phelipetls/jsonpath.nvim'
+
 " Elixir
 Plug 'elixir-editors/vim-elixir', { 'for': ['elixir', 'eelixir']}
 Plug 'tpope/vim-endwise', { 'for': ['elixir'] }
@@ -128,7 +130,7 @@ endif
 set sessionoptions-=options
 
 set laststatus=3
-set winbar=%#VisualNC#\ %=%m%r\ %{expand('%:t')}
+set winbar=%=%m%r\ %{expand('%:t')}
 " DEFAULT STATUSLINE
 " set statusline=%f%h%m%r\ [%{&ff}]\ (%{strftime(\"%H:%M\ %d/%m/%Y\",getftime(expand(\"%:p\")))})%=%l,%c%V\ %P
 
@@ -151,6 +153,7 @@ au InsertLeave * silent! set nopaste
 let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
 au FileType json setlocal foldmethod=indent
+au FileType json setlocal foldmethod=indent winbar=%{luaeval('require\"jsonpath\".get()')}
 au FileType yaml setlocal foldmethod=indent
 au FileType yml setlocal foldmethod=indent
 au FileType make setl noexpandtab
@@ -192,6 +195,9 @@ augroup MyCursorLineGroup
 augroup end
 
 autocmd TermOpen * setlocal nonumber norelativenumber
+
+" do not show context.vim for these filetypes
+let g:context_filetype_blacklist = ['json']
 
 " KEY UNMAPPINGS
 map <Space>tm <Nop>
@@ -307,6 +313,9 @@ nnoremap <silent>yot :TableModeToggle<CR>
 nnoremap <silent>you :UndotreeToggle<CR>
 nnoremap <silent>yoz :set rnu! nu! smd! ru!<CR>
 
+" send json path to clipboard
+nnoremap <buffer> yj :let @+=luaeval('require"jsonpath".get()')<CR>
+
 " tabs
 nnoremap <silent><leader>tc :tabclose<CR>
 " mnemonic for factory hence f
@@ -332,6 +341,7 @@ nnoremap <silent><leader>wn aManmohan<Space>Krishna<Esc>
 nnoremap <silent><leader>wmp akrishna.m.zyw@gmail.com<Esc>
 nnoremap <silent><leader>wmw amanmohan_krishna@apple.com<Esc>
 nnoremap <silent><leader>wz <C-w>_<C-w><Bar>
+
 
 let g:VM_maps = {}
 let g:VM_maps["Add Cursor Down"] = '<M-f>'
