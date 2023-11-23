@@ -293,7 +293,8 @@ vnoremap <silent><leader>p "_dP
 " structure csv(tabularize)
 nnoremap <silent><leader>sc :Tabularize /,<CR>
 " structure json
-nnoremap <silent><leader>sj :%!jq .<CR>
+nnoremap <silent><leader>sjj :%!jq .<CR>
+nnoremap <silent><leader>sjc :%!jq -c .<CR>
 
 " set filetype
 nnoremap <silent><leader>sfj :set ft=json<CR>
