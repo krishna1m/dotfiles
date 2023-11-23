@@ -365,9 +365,13 @@ vnoremap <leader>c <ESC>:'<,'>g//<Left>
 " the ultimate find and replace
 " to match whole word, surround it with \<word\>
 " eg, :s/\<bar\>/baz
-vnoremap <leader>r <ESC>:'<,'>s/\%V/gI<Left><Left><Left>
+vnoremap <leader>rs <ESC>:'<,'>s/\%V/gI<Left><Left><Left>
+" replace last searched term
+nnoremap <leader>rl :%s//g<Left>
+" replace the word you will type with the word the cursor is currently on
+nnoremap <leader>rc :%s//<C-r><C-a>/g<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 
-" the ultimate surround
+" the uctimate surround
 vnoremap <leader>s <ESC>:'<,'>s/\%V\(\w.*\)/"\1"<Left><Left><Left><Left>
 
 " the ultimate find

@@ -1,6 +1,6 @@
 # fun commands - cmatrix, cowsay, sl, fortune, asciiquarium, pv, toilet
 # useful packages - fd, ripgrep, ripgrep-all, fzf, pbcopy, pbpaste, sponge, zoxide, ranger, gnupg, neofetch, tealdeer, httpie, direnv, jq, parallel, bat, exa, pcre2, bats-core, git-delta, gh
-# useful packages (continued)- `brew install noahgorstein/tap/jqp`, pyenv, jid
+# useful packages (continued)- `brew install noahgorstein/tap/jqp`, pyenv, jid, csvkit
 # cmake
 set -x CMAKE_PATH /Applications/CMake.app/Contents/bin
 set -x PATH $CMAKE_PATH $PATH
@@ -128,8 +128,8 @@ alias gfetch="git fetch --all"
 alias gprune="git fetch --all --prune"
 alias h='nvim -c ":History"'
 alias dps='docker ps --format "table {{.Image}}\t{{.Ports}}\t{{.Names}}"'
-alias dsr='docker stop $(docker ps -aq) && docker rm -v $(docker ps -aq)'
 
+abbr dsr 'docker stop $(docker ps -aq) && docker rm -v $(docker ps -aq)'
 abbr nj 'nvim -c "set ft=json" -c "set foldmethod=indent"'
 abbr g "git"
 abbr r "ranger"
