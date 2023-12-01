@@ -1,6 +1,6 @@
 # fun commands - cmatrix, cowsay, sl, fortune, asciiquarium, pv, toilet
 # useful packages - fd, ripgrep, ripgrep-all, fzf, pbcopy, pbpaste, sponge, zoxide, ranger, gnupg, neofetch, tealdeer, httpie, direnv, jq, parallel, bat, exa, pcre2, bats-core, git-delta, gh
-# useful packages (continued)- `brew install noahgorstein/tap/jqp`, pyenv, jid, csvkit
+# useful packages (continued)- `brew install noahgorstein/tap/jqp`, pyenv, jid, csvkit, gsed
 # cmake
 set -x CMAKE_PATH /Applications/CMake.app/Contents/bin
 set -x PATH $CMAKE_PATH $PATH
@@ -49,7 +49,9 @@ eval "$(pyenv virtualenv-init -)"
 # vf activate <envname>
 # vf deactivate
 
-
+# gnu sed
+set -x GSED_PATH /usr/local/opt/gnu-sed/libexec/gnubin
+set -x PATH $GSED_PATH $PATH
 
 if [ -f $HOME/.config/fish/alias.fish ]
   source $HOME/.config/fish/alias.fish
@@ -83,6 +85,7 @@ fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 source ~/.asdf/asdf.fish
 # for erlang
 fish_add_path /usr/local/opt/libxslt/bin
+set -gx ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file_bytes 1024000"
 set -gx LDFLAGS "-L/usr/local/opt/libxslt/lib"
 set -gx CPPFLAGS "-I/usr/local/opt/libxslt/include"
 fish_add_path /usr/local/opt/libxslt/bin
