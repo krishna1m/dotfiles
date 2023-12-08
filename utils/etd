@@ -4,5 +4,13 @@ if [ $# -lt 1 ]; then
   exit 1
 else
   timestamp=$1
-  date -r `echo $((timestamp/1000))`
+  if [ ${#timestamp} -eq 13 ]
+  then
+    date -r `echo $((timestamp/1000))`
+  elif [ ${#timestamp} -eq 10 ]  
+  then
+    date -r $timestamp
+  else
+    echo 'Pass a valid epoch timestamp'
+  fi
 fi
