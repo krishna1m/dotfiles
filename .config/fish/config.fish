@@ -228,6 +228,10 @@ abbr tls 'tmux ls'
 # Does the same thing but <encrypted> created
 # gpg -d -o <unencrypted-file> <encrypted>
 
+# To see column names
+# csvcut -n <csvfile>
+# csvcut -c 'comma separated column name/number' <csvfile>
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
