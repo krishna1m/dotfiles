@@ -61,6 +61,10 @@ if [ -f $HOME/.config/fish/aoc.fish ]
   source $HOME/.config/fish/aoc.fish
 end
 
+if [ -f $HOME/.config/fish/util_functions.fish ]
+  source $HOME/.config/fish/util_functions.fish
+end
+
 # git
 set -x GIT_BARE $HOME/repo/bare
 set -x GIT_WORKTREES $HOME/repo/worktrees
