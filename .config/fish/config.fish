@@ -140,6 +140,11 @@ alias gprune="git fetch --all --prune"
 alias h='nvim -c ":History"'
 alias dps='docker ps --format "table {{.Image}}\t{{.Ports}}\t{{.Names}}"'
 
+alias oreilly='open https://www.oreilly.com/'
+alias linkedin='open https://linkedin.com/in/krishna1m'
+alias rust='open https://www.rust-lang.org/'
+alias coursera='open https://www.coursera.org/'
+
 abbr dsr 'docker stop $(docker ps -aq) && docker rm -v $(docker ps -aq)'
 abbr nj 'nvim -c "set ft=json" -c "set foldmethod=indent"'
 abbr g "git"
