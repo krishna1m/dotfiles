@@ -23,6 +23,11 @@ let g:vimspector_bottombar_height = 15
 let g:vimspector_terminal_maxwidth = 70
 ]])
 
+vim.cmd([[
+let g:leetcode_browser = 'brave'
+let g:leetcode_solution_filetype = 'python3'
+]])
+
 
 -- todo-comments
 map("n", "]t", function()

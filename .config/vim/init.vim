@@ -35,6 +35,7 @@ Plug 'gcmt/taboo.vim'
 Plug 'wellle/context.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'derekwyatt/vim-scala'
+Plug 'ianding1/leetcode.vim'
 
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -256,6 +257,12 @@ nnoremap <silent><leader>gf :GV!<CR>
 nnoremap <silent><leader>gp :G push<CR>
 " save and add to staging area
 nnoremap <silent><leader>gw :Gwrite<CR>
+
+" leetcode binds
+nnoremap <leader>ll :LeetCodeList<cr>
+nnoremap <leader>lt :LeetCodeTest<cr>
+nnoremap <leader>ls :LeetCodeSubmit<cr>
+nnoremap <leader>li :LeetCodeSignIn<cr>
 
 " NERDTREE
 nnoremap <silent><leader>no :NERDTree<CR>
