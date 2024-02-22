@@ -24,6 +24,7 @@ set -x PATH $GO_PATH $PATH
 
 # jdk
 set -x JAVA_HOME $HOME/opt/applejdk-8.0.292.9.1.jdk/Contents/Home
+# set -x JAVA_HOME $HOME/opt/jdk-14.0.2.jdk/Contents/Home
 set -x PATH $JAVA_HOME $PATH
 
 # sbt-credentials
@@ -52,6 +53,10 @@ eval "$(pyenv virtualenv-init -)"
 # gnu sed
 set -x GSED_PATH /usr/local/opt/gnu-sed/libexec/gnubin
 set -x PATH $GSED_PATH $PATH
+
+# lunarvim
+set -x LVIM_PATH $HOME/.local/bin/
+set -x PATH $LVIM_PATH $PATH
 
 if [ -f $HOME/.config/fish/alias.fish ]
   source $HOME/.config/fish/alias.fish
