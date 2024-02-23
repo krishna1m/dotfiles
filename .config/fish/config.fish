@@ -165,6 +165,7 @@ abbr vim 'nvim'
 
 # git
 abbr ga 'git add'
+abbr gam "git status | grep modified | awk '{print \$2}' | xargs git add"
 abbr gb 'git branch'
 abbr gbr 'git branch --remote'
 abbr gbc 'git branch -a --contains <commit-sha>'
