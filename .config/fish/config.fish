@@ -18,6 +18,16 @@ set -x CARGO_BIN $HOME/.cargo/bin
 set -x CARGO_ENV $HOME/.cargo/env
 set -x PATH $CARGO_ENV $CARGO_BIN $PATH
 
+# haskell
+# To start a simple repl, run:
+#   ghci
+# To start a new haskell project in the current directory, run:
+#   cabal init --interactive
+# To install other GHC versions and tools, run:
+#   ghcup tui
+# If you are new to Haskell, check out https://www.haskell.org/ghcup/steps/
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /Users/manmohankrishna/.ghcup/bin # ghcup-env
+
 # golang
 set -x GO_PATH $HOME/opt/go/bin
 set -x PATH $GO_PATH $PATH
