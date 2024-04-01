@@ -37,6 +37,7 @@ set -x PATH $GO_PATH $PATH
 # jdk
 set -x JAVA_HOME $HOME/opt/applejdk-8.0.292.9.1.jdk/Contents/Home
 # set -x JAVA_HOME $HOME/opt/jdk-14.0.2.jdk/Contents/Home
+# set -x JAVA_HOME $HOME/opt/jdk-17.0.10.jdk/Contents/Home
 set -x PATH $JAVA_HOME $PATH
 
 # sbt-credentials
@@ -52,6 +53,8 @@ set -x PATH $KAFKA_PATH $PATH
 set -x MONGO_PATH $HOME/opt/mongodb/bin
 set -x PATH $MONGO_PATH $PATH
 alias mongod="mongod --dbpath=/Users/manmohankrishna/data/db"
+
+set -x PATH /usr/local/bin $PATH
 
 # python
 set -x PYENV_PATH $HOME/.pyenv/bin
@@ -234,6 +237,7 @@ abbr grl 'git rebase --onto <newbase> <oldbase> <end>'
 abbr grr 'git rebase --continue'
 abbr grv 'git remote -v'
 abbr gg 'git status'
+abbr gguno 'git status -uno'
 
 # github cli
 alias ghprcv="GH_FORCE_TTY=100% gh pr list | fzf --ansi --header-lines 3 --preview 'GH_FORCE_TTY=100% gh pr view {1}' | awk '{print $1}' | xargs gh pr checkout"
