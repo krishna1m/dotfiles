@@ -28,24 +28,30 @@
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
-(setq doom-font (font-spec :family "Monofur Nerd Font" :size 16)
-     doom-big-font (font-spec :family "Monofur Nerd Font" :size 22)
-     doom-variable-pitch-font (font-spec :family "Monofur Nerd Font" :size 16)
-     doom-unicode-font (font-spec :family "Monofur Nerd Font")
-     doom-serif-font (font-spec :family "Monofur Nerd Font" :weight 'bold))
+
+;; (setq doom-font (font-spec :family "FiraMono Nerd Font" :size 16)
+;;      doom-big-font (font-spec :family "FiraMono Nerd Font" :size 22)
+;;      doom-variable-pitch-font (font-spec :family "FiraMono Nerd Font" :size 16)
+;;      doom-unicode-font (font-spec :family "FiraMono Nerd Font" :size 20)
+;;      doom-serif-font (font-spec :family "FiraMono Nerd Font" :weight 'bold))
+(setq doom-font (font-spec :family "Monaspace Radon Var" :size 16)
+     doom-big-font (font-spec :family "Monaspace Radon Var" :size 22)
+     doom-variable-pitch-font (font-spec :family "Monaspace Radon Var" :size 16)
+     doom-unicode-font (font-spec :family "FiraMono Nerd Font" :size 20)
+     doom-serif-font (font-spec :family "Monaspace Radon Var" :weight 'bold))
 
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 
-      'doom-gruvbox
-      ;; 'doom-opera
-      )
+;; (setq doom-theme
+;;       'doom-gruvbox
+;;       ;; 'doom-opera
+;;       )
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(global-display-line-numbers-mode t)
+;; (global-display-line-numbers-mode t)
 (setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
@@ -55,10 +61,99 @@
         :n "M-j" #'org-metadown
         :n "M-k" #'org-metaup)
   (setq org-directory "~/org/")
-  (setq org-log-done 'note))
+  (setq org-log-done 'note)
+  (setq org-agenda-span 1
+        org-agenda-start-day "+0d"
+        org-agenda-skip-timestamp-if-done t
+        org-agenda-skip-deadline-if-done t
+        org-agenda-skip-scheduled-if-done t
+        org-agenda-skip-scheduled-if-deadline-is-shown t
+        org-agenda-skip-timestamp-if-deadline-is-shown t)
+  (global-org-modern-mode))
+
+(setq org-agenda-current-time-string "")
+(setq org-agenda-time-grid '((daily) () "" ""))
+(setq org-agenda-hide-tags-regexp ".*")
+(setq org-super-agenda-groups
+       '(;; Each group has an implicit boolean OR operator between its selectors.
+         (:name " Overdue "  ; Optionally specify section name
+                :scheduled past
+                :order 2
+                :face 'error)
+
+         (:name "Personal "
+                :and(:file-path "Personal" :not (:tag "event"))
+                :order 3)
+
+         (:name "Work "
+                :and(:file-path "Work" :not (:tag "event"))
+                :order 3)
+
+         (:name "Family "
+                :and(:file-path "Family" :not (:tag "event"))
+                :order 3)
+
+         (:name "Teaching "
+                :and(:file-path "Teaching" :not (:tag "event"))
+                :order 3)
+
+         (:name "Gamedev "
+                :and(:file-path "Gamedev" :not (:tag "event"))
+                :order 3)
+
+         (:name "Youtube "
+                :and(:file-path "Producer" :not (:tag "event"))
+                :order 3)
+
+         (:name "Music "
+                :and(:file-path "Bard" :not (:tag "event"))
+                :order 3)
+
+         (:name "Storywriting "
+                :and(:file-path "Stories" :not (:tag "event"))
+                :order 3)
+
+         (:name "Writing "
+                :and(:file-path "Author" :not (:tag "event"))
+                :order 3)
+
+         (:name "Learning "
+                :and(:file-path "Knowledge" :not (:tag "event"))
+                :order 3)
+
+          (:name " Today "  ; Optionally specify section name
+                :time-grid t
+                :date today
+                :scheduled today
+                :order 1
+                :face 'warning)
+
+))
+
+(org-super-agenda-mode t)
+
+;; Add this back when using `org-super-agenda`
+(setq org-agenda-prefix-format '(
+                                 (agenda . " %?-2i %t ")
+                                 (todo . " %i %-12:c")
+                                 (tags . " %i %-12:c")
+                                 (search . " %i %-12:c")))
+(setq org-agenda-category-icon-alist
+      `(
+        ("Teaching", (list (all-the-icons-faicon "graduation-cap" :height 0.8)) nil nil :ascent center)
+        ("Family", (list (all-the-icons-faicon "home" :v-adjust 0.005)) nil nil :ascent center)
+        ("Work", (list (all-the-icons-faicon "briefcase" :v-adjust 0.002)) nil nil :ascent center)
+        )
+      )
+
+
+(defun org-agenda-open-hook ()
+  (olivetti-mode))
+
+(add-hook 'org-agenda-mode-hook 'org-agenda-open-hook)
 
 ;; Deft configuration
-(setq deft-directory "~/notes"
+(setq deft-directory "~/org"
       deft-extensions '("org" "txt")
       deft-recursive t)
 
@@ -79,7 +174,7 @@
       centaur-tabs-set-modified-marker t)
 
 ;; Load up banner
-(setq +doom-dashboard-banner-file (expand-file-name "banner.png" doom-private-dir))
+(setq +doom-dashboard-banner-file (expand-file-name "banner.png" doom-user-dir))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
