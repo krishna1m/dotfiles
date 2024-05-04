@@ -1,5 +1,5 @@
 import $ivy.`org.playframework::play-json:3.0.2`, play.api.libs.json._, play.api.libs.json.Reads._, play.api.libs.functional.syntax._
-import $ivy.`org.typelevel::cats-core:2.9.0`, cats._, cats.syntax.all._
+import $ivy.`org.typelevel::cats-core:2.9.0`, cats._, cats.data._, cats.syntax.all._
 import $ivy.`org.typelevel::cats-effect:3.5.1`
 import $ivy.`io.circe::circe-core:0.14.1`
 import $ivy.`io.circe::circe-generic:0.14.1`
