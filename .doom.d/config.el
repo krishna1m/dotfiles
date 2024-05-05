@@ -60,7 +60,7 @@
   (map! :map org-mode-map
         :n "M-j" #'org-metadown
         :n "M-k" #'org-metaup)
-  (setq org-directory "~/org/")
+  (setq org-directory "~/org")
   (setq org-log-done 'note)
   (setq org-agenda-span 1
         org-agenda-start-day "+0d"
@@ -69,9 +69,42 @@
         org-agenda-skip-scheduled-if-done t
         org-agenda-skip-scheduled-if-deadline-is-shown t
         org-agenda-skip-timestamp-if-deadline-is-shown t)
-  (global-org-modern-mode))
+  ;; (global-org-modern-mode)
+ )
 
-(setq org-agenda-current-time-string "")
+(setq org-capture-templates
+      '(
+        ("p" "Personal" entry (file+headline "~/org/personal.org" "Personal")
+         "* TODO %?\n")
+        ("f" "Family" entry (file+headline "~/org/family.org" "Family")
+         "* TODO %?\n")
+        ("m" "Money" entry (file+headline "~/org/money.org" "Money")
+         "* TODO %?\n")
+        ("h" "Home" entry (file+headline "~/org/home.org" "Home")
+         "* TODO %?\n")
+        ("l" "Learning" entry (file+headline "~/org/learn.org" "Learning")
+         "* TODO %?\n")
+        ("w" "Work" entry (file+headline "~/org/work.org" "Work")
+         "* TODO %?\n DEADLINE: %^t\n")
+        ("r" "Rendezvous" entry (file+headline "~/org/rendezvous.org" "Rendezvous")
+         "* TODO %?\n SCHEDULED: %^t\n")
+        ))
+
+(after! org-fancy-priorities
+  (setq
+   org-fancy-priorities-list '("[A]" "[B]" "[C]")
+   org-priority-faces
+   '((?A :foreground "red" :weight bold)
+     (?B :foreground "green" :weight bold)
+     (?C :foreground "grey" :weight bold))
+   )
+  )
+
+(with-eval-after-load 'org
+  (defun org-agenda-files (&rest _)
+    (directory-files-recursively "~/org" org-agenda-file-regexp)))
+
+(setq org-agenda-current-time-string "← now ───────────────────────────────────────────────")
 (setq org-agenda-time-grid '((daily) () "" ""))
 (setq org-agenda-hide-tags-regexp ".*")
 (setq org-super-agenda-groups
@@ -82,46 +115,31 @@
                 :face 'error)
 
          (:name "Personal "
-                :and(:file-path "Personal" :not (:tag "event"))
-                :order 3)
-
-         (:name "Work "
-                :and(:file-path "Work" :not (:tag "event"))
+                :and(:file-path "personal" :not (:tag "event"))
                 :order 3)
 
          (:name "Family "
-                :and(:file-path "Family" :not (:tag "event"))
+                :and(:file-path "family" :not (:tag "event"))
                 :order 3)
 
-         (:name "Teaching "
-                :and(:file-path "Teaching" :not (:tag "event"))
+         (:name "Money "
+                :and(:file-path "money" :not (:tag "event"))
                 :order 3)
 
-         (:name "Gamedev "
-                :and(:file-path "Gamedev" :not (:tag "event"))
-                :order 3)
-
-         (:name "Youtube "
-                :and(:file-path "Producer" :not (:tag "event"))
-                :order 3)
-
-         (:name "Music "
-                :and(:file-path "Bard" :not (:tag "event"))
-                :order 3)
-
-         (:name "Storywriting "
-                :and(:file-path "Stories" :not (:tag "event"))
-                :order 3)
-
-         (:name "Writing "
-                :and(:file-path "Author" :not (:tag "event"))
+         (:name "Home "
+                :and(:file-path "home" :not (:tag "event"))
                 :order 3)
 
          (:name "Learning "
-                :and(:file-path "Knowledge" :not (:tag "event"))
+                :and(:file-path "learn" :not (:tag "event"))
                 :order 3)
 
-          (:name " Today "  ; Optionally specify section name
+         (:name "Work "
+                :and(:file-path "work" :not (:tag "event"))
+                :order 3)
+
+         ;; another category - rendezvous
+          (:name "  Today "  ; Optionally specify section name
                 :time-grid t
                 :date today
                 :scheduled today
@@ -140,9 +158,13 @@
                                  (search . " %i %-12:c")))
 (setq org-agenda-category-icon-alist
       `(
-        ("Teaching", (list (all-the-icons-faicon "graduation-cap" :height 0.8)) nil nil :ascent center)
-        ("Family", (list (all-the-icons-faicon "home" :v-adjust 0.005)) nil nil :ascent center)
-        ("Work", (list (all-the-icons-faicon "briefcase" :v-adjust 0.002)) nil nil :ascent center)
+        ("personal", (list (all-the-icons-faicon "user" :height 0.6 :v-height 0.2)) nil nil :ascent center)
+        ("family", (list (all-the-icons-faicon "users" :height 0.6 :v-height 0.1)) nil nil :ascent center)
+        ("money", (list (all-the-icons-faicon "money" :v-adjust 0.005)) nil nil :ascent center)
+        ("home", (list (all-the-icons-faicon "home" :v-adjust 0.005)) nil nil :ascent center)
+        ("learn", (list (all-the-icons-faicon "graduation-cap" :height 0.8)) nil nil :ascent center)
+        ("work", (list (all-the-icons-faicon "briefcase" :height 0.8)) nil nil :ascent center)
+        ("rendezvous", (list (all-the-icons-faicon "calendar" :height 0.6 :v-height 0.1)) nil nil :ascent center :mask heuristic)
         )
       )
 
@@ -156,6 +178,14 @@
 (setq deft-directory "~/org"
       deft-extensions '("org" "txt")
       deft-recursive t)
+
+(setq org-journal-date-prefix "#+TITLE: "
+      org-journal-time-prefix "* "
+      org-journal-date-format "%a, %Y-%m-%d"
+      org-journal-file-format "%Y-%m-%d.org"
+      )
+
+(setq org-roam-directory "~/roam")
 
 ;; Which-key delay seconds
 (setq which-key-idle-delay 0)
