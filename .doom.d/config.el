@@ -72,23 +72,51 @@
   ;; (global-org-modern-mode)
  )
 
-(setq org-capture-templates
-      '(
-        ("p" "Personal" entry (file+headline "~/org/personal.org" "Personal")
-         "* TODO %?\n")
-        ("f" "Family" entry (file+headline "~/org/family.org" "Family")
-         "* TODO %?\n")
-        ("m" "Money" entry (file+headline "~/org/money.org" "Money")
-         "* TODO %?\n")
-        ("h" "Home" entry (file+headline "~/org/home.org" "Home")
-         "* TODO %?\n")
-        ("l" "Learning" entry (file+headline "~/org/learn.org" "Learning")
-         "* TODO %?\n")
-        ("w" "Work" entry (file+headline "~/org/work.org" "Work")
-         "* TODO %?\n DEADLINE: %^t\n")
-        ("r" "Rendezvous" entry (file+headline "~/org/rendezvous.org" "Rendezvous")
-         "* TODO %?\n SCHEDULED: %^t\n")
-        ))
+(use-package org-capture
+  :config
+  (setq org-capture-templates
+        '(
+          ("p" "Personal" entry (file+headline "~/org/personal.org" "Personal")
+           "* TODO %?\n")
+          ("f" "Family" entry (file+headline "~/org/family.org" "Family")
+           "* TODO %?\n")
+          ("m" "Money" entry (file+headline "~/org/money.org" "Money")
+           "* TODO %?\n")
+          ("h" "Home" entry (file+headline "~/org/home.org" "Home")
+           "* TODO %?\n")
+          ("l" "Learning" entry (file+headline "~/org/learn.org" "Learning")
+           "* TODO %?\n")
+          ("w" "Work" entry (file+headline "~/org/work.org" "Work")
+           "* TODO %?\n DEADLINE: %^t\n")
+          ("r" "Rendezvous" entry (file+headline "~/org/rendezvous.org" "Rendezvous")
+           "* TODO %?\n SCHEDULED: %^t\n")
+          )))
+
+;; Default org-capture templates
+;; (("t" "Personal todo" entry
+;;   (file+headline +org-capture-todo-file "Inbox")
+;;   "* [ ] %?\n%i\n%a" :prepend t)
+;;  ("n" "Personal notes" entry
+;;   (file+headline +org-capture-notes-file "Inbox")
+;;   "* %u %?\n%i\n%a" :prepend t)
+;;  ("j" "Journal" entry
+;;   (file+olp+datetree +org-capture-journal-file)
+;;   "* %U %?\n%i\n%a" :prepend t)
+;;  ("p" "Templates for projects")
+;;  ("pt" "Project-local todo" entry
+;;   (file+headline +org-capture-project-todo-file "Inbox")
+;;   "* TODO %?\n%i\n%a" :prepend t)
+;;  ("pn" "Project-local notes" entry
+;;   (file+headline +org-capture-project-notes-file "Inbox")
+;;   "* %U %?\n%i\n%a" :prepend t)
+;;  ("pc" "Project-local changelog" entry
+;;   (file+headline +org-capture-project-changelog-file "Unreleased")
+;;   "* %U %?\n%i\n%a" :prepend t)
+;;  ("o" "Centralized templates for projects")
+;;  ("ot" "Project todo" entry #'+org-capture-central-project-todo-file "* TODO %?\n %i\n %a" :heading "Tasks" :prepend nil)
+;;  ("on" "Project notes" entry #'+org-capture-central-project-notes-file "* %U %?\n %i\n %a" :heading "Notes" :prepend t)
+;;  ("oc" "Project changelog" entry #'+org-capture-central-project-changelog-file "* %U %?\n %i\n %a" :heading "Changelog" :prepend t))
+
 
 (after! org-fancy-priorities
   (setq
@@ -158,13 +186,13 @@
                                  (search . " %i %-12:c")))
 (setq org-agenda-category-icon-alist
       `(
-        ("personal", (list (all-the-icons-faicon "user" :height 0.6 :v-height 0.2)) nil nil :ascent center)
-        ("family", (list (all-the-icons-faicon "users" :height 0.6 :v-height 0.1)) nil nil :ascent center)
-        ("money", (list (all-the-icons-faicon "money" :v-adjust 0.005)) nil nil :ascent center)
+        ("personal", (list (all-the-icons-faicon "user" :height 0.6 :v-height 0.005)) nil nil :ascent center)
+        ("family", (list (all-the-icons-faicon "users" :height 0.6 :v-height 0.005)) nil nil :ascent center)
+        ("money", (list (all-the-icons-faicon "inr" :v-adjust 0.005)) nil nil :ascent center)
         ("home", (list (all-the-icons-faicon "home" :v-adjust 0.005)) nil nil :ascent center)
-        ("learn", (list (all-the-icons-faicon "graduation-cap" :height 0.8)) nil nil :ascent center)
+        ("learn", (list (all-the-icons-faicon "book" :height 0.8)) nil nil :ascent center)
         ("work", (list (all-the-icons-faicon "briefcase" :height 0.8)) nil nil :ascent center)
-        ("rendezvous", (list (all-the-icons-faicon "calendar" :height 0.6 :v-height 0.1)) nil nil :ascent center :mask heuristic)
+        ("rendezvous", (list (all-the-icons-faicon "calendar-o" :height 0.7 :v-height 0.005)) nil nil :ascent center :mask heuristic)
         )
       )
 
@@ -179,7 +207,8 @@
       deft-extensions '("org" "txt")
       deft-recursive t)
 
-(setq org-journal-date-prefix "#+TITLE: "
+(setq org-journal-dir "~/journal"
+      org-journal-date-prefix "#+TITLE: "
       org-journal-time-prefix "* "
       org-journal-date-format "%a, %Y-%m-%d"
       org-journal-file-format "%Y-%m-%d.org"
