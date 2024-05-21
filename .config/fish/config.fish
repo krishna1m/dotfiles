@@ -1,6 +1,6 @@
 # fun commands - cmatrix, cowsay, sl, fortune, asciiquarium, pv, toilet
 # useful packages - fd, ripgrep, ripgrep-all, fzf, pbcopy, pbpaste, sponge, zoxide, ranger, gnupg, neofetch, tealdeer, httpie, direnv, jq, parallel, bat, exa, pcre2, bats-core, git-delta, gh
-# useful packages (continued)- `brew install noahgorstein/tap/jqp`, pyenv, jid, csvkit, gsed, ntfy, zed, pandoc
+# useful packages (continued)- `brew install noahgorstein/tap/jqp`, pyenv, jid, csvkit, gsed, ntfy, zed, pandoc, basictex
 # cmake
 set -x CMAKE_PATH /Applications/CMake.app/Contents/bin
 set -x PATH $CMAKE_PATH $PATH
@@ -240,8 +240,12 @@ abbr gg 'git status'
 abbr gguno 'git status -uno'
 
 # github cli
-alias ghpcm="GH_FORCE_TTY=100% gh pr list | fzf --ansi --header-lines 3 --preview 'GH_FORCE_TTY=100% gh pr view {1}' | awk '{print \$1}' | xargs gh pr checkout"
-alias ghpcd="GH_FORCE_TTY=100% gh pr list | fzf --ansi --header-lines 3 --preview 'GH_FORCE_TTY=100% gh pr diff {1} | delta' | awk '{print \$1}' | xargs gh pr checkout"
+# see pr diff and checkout
+alias ghprcoo="GH_FORCE_TTY=100% gh pr list | fzf --ansi --header-lines 3 --preview 'GH_FORCE_TTY=100% gh pr diff {1} | delta' | awk '{print \$1}' | xargs gh pr checkout"
+# open pr metadata and open in browser
+alias ghprb="GH_FORCE_TTY=100% gh pr list | fzf --ansi --header-lines 3 --preview 'GH_FORCE_TTY=100% gh pr view {1}' | awk '{print \$1}' | xargs gh pr view --web"
+# comment on the PR in browser
+alias ghprcc="GH_FORCE_TTY=100% gh pr list | fzf --ansi --header-lines 3 --preview 'GH_FORCE_TTY=100% gh pr view {1}' | awk '{print \$1}' | xargs gh pr comment -w"
 abbr ghb "gh browse"
 abbr ghs "gh search"
 
