@@ -151,7 +151,7 @@ alias df='df -h'
 alias rm='rm -v'
 alias jq='jq'
 alias tldrs="tldr --list | fzf-tmux -p 90%,90% --preview 'tldr --color=always {1}' | xargs tldr"
-alias gcoi="git branch --sort=-committerdate | fzf-tmux -p 90%,90% --preview='git diff --color=always {1} | delta' | xargs git checkout"
+alias gcoi="git branch --remote --sort=-committerdate | fzf-tmux -p 90%,90% --preview='git diff --color=always head..{1} | delta' | xargs git checkout"
 alias ghome='cd $(git rev-parse --show-toplevel)'
 alias gdeletel="git fetch --all && git branch --merged | sort | sed \$d >/tmp/merged-branches && echo '$(tput setaf 1)WARNING: $(tput setaf 6)keep only those branches that you want DELETED$(tput sgr0)' && sleep 3 && nvim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
 alias gdeleter="git fetch --all && git branch -r --merged | pcre2grep 'mk/' | pcre2grep -v 'origin|main|master|develop|staging' | sed 's/mk\///' >/tmp/merged-branches && echo '$(tput setaf 1)WARNING: $(tput setaf 6)keep only those branches that you want DELETED$(tput sgr0)' && sleep 3 && nvim /tmp/merged-branches && xargs git push -d mk </tmp/merged-branches"
