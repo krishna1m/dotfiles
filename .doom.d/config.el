@@ -72,6 +72,8 @@
   ;; (global-org-modern-mode)
  )
 
+(setq org-export-with-broken-links t)
+
 (use-package org-capture
   :config
   (setq org-capture-templates
