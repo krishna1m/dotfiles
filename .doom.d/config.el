@@ -218,6 +218,10 @@
 
 (setq org-roam-directory "~/roam")
 
+(defadvice revert-buffer (after refresh-org-agenda activate)
+  (if (eq major-mode 'org-mode)
+      (org-agenda-redo-all t)))
+
 ;; Which-key delay seconds
 (setq which-key-idle-delay 0)
 
