@@ -57,6 +57,7 @@ alias mongod="mongod --dbpath=/Users/manmohankrishna/data/db"
 set -x PATH /usr/local/bin $PATH
 
 # python
+set -x PYENV_VERSION "3.11"
 set -x PYENV_PATH $HOME/.pyenv/bin
 set -x PATH $PYENV_PATH $PATH
 eval "$(pyenv init -)"
