@@ -152,10 +152,9 @@ alias df='df -h'
 alias rm='rm -v'
 alias jq='jq'
 alias tldrs="tldr --list | fzf-tmux -p 90%,90% --preview 'tldr --color=always {1}' | xargs tldr"
-alias gcoi="git branch --remote --sort=-committerdate | fzf-tmux -p 90%,90% --preview='git diff --color=always head..{1} | delta' | xargs git checkout"
 alias ghome='cd $(git rev-parse --show-toplevel)'
-alias gdeletel="git fetch --all && git branch --merged | sort | sed \$d >/tmp/merged-branches && echo '$(tput setaf 1)WARNING: $(tput setaf 6)keep only those branches that you want DELETED$(tput sgr0)' && sleep 3 && nvim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
-alias gdeleter="git fetch --all && git branch -r --merged | pcre2grep 'mk/' | pcre2grep -v 'origin|main|master|develop|staging' | sed 's/mk\///' >/tmp/merged-branches && echo '$(tput setaf 1)WARNING: $(tput setaf 6)keep only those branches that you want DELETED$(tput sgr0)' && sleep 3 && nvim /tmp/merged-branches && xargs git push -d mk </tmp/merged-branches"
+alias gdeletel="git fetch --all && git branch --merged | pcre2grep -v '^\*' | sort >/tmp/merged-branches && echo '$(tput setaf 1)WARNING: $(tput setaf 6)keep only those branches that you want DELETED$(tput sgr0)' && sleep 5 && lvim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
+alias gdeleter="git fetch --all && git branch -r --merged | pcre2grep 'mk/' | pcre2grep -v 'origin|main|master|develop|staging' | sed 's/mk\///' >/tmp/merged-branches && echo '$(tput setaf 1)WARNING: $(tput setaf 6)keep only those branches that you want DELETED$(tput sgr0)' && sleep 5 && lvim /tmp/merged-branches && xargs git push -d mk </tmp/merged-branches"
 alias gfetch="git fetch --all"
 alias gprune="git fetch --all --prune"
 alias h='nvim -c ":History"'
@@ -210,15 +209,19 @@ abbr gczsp 'git stash show -p'
 # stash staged and unstaged changes - keep the staged changes in working tree
 abbr gczk 'git stash --keep-index'
 # stash staged, unstaged and untracked changes - keep the staged changes in working tree
-abbr gczku 'git stash --keep-index -u'
+abbr gczuk 'git stash --keep-index -u'
 # stash only staged changes
 abbr gczss 'git stash -S'
 
 abbr gcm 'git merge'
 abbr gcob 'git checkout -b'
-abbr gcoh 'git checkout origin/HEAD -b'
+# see diff for a local branch with current branch and checkout
+alias gcoi="git branch --sort=-committerdate | fzf-tmux -p 90%,90% --preview='git diff --color=always head..{1} | delta' | xargs git checkout"
+# checkout any branch from the default branch
+abbr gcoh 'git fetch origin HEAD && git checkout origin/HEAD -b'
 abbr gcoo 'git checkout'
-abbr gcot 'git branch --remote | fzf | xargs git checkout --track'
+# checkout any branch in origin
+alias gcot "git ls-remote --heads origin | awk -F'heads/' '{print \$2}' | fzf-tmux -p 30%,90% | xargs -I{} sh -c 'git fetch origin {}; git checkout --track origin/{}'"
 abbr gcp 'git cherry-pick'
 
 abbr gd 'git diff'
@@ -227,9 +230,10 @@ abbr gf 'git fetch'
 abbr gfoo 'git fetch origin'
 abbr gfoh 'git fetch origin HEAD'
 abbr gl 'git log'
-abbr gls 'git log --pretty="%C(Yellow)%h  %C(reset)%ad (%C(Green)%cr%C(reset))%x09 %C(Cyan)%an: %C(reset)%s" --date=short -7'
-abbr gll 'git log --all --decorate --oneline --graph'
-abbr glb 'git log --oneline --graph --decorate --abbrev-commit <branch1>..<branch2>'
+alias gls='git log --pretty="%C(Yellow)%h  %C(reset)%ad (%C(Green)%cr%C(reset))%x09 %C(Cyan)%an: %C(reset)%s" --date=short -7'
+alias gll='git log --all --decorate --oneline --graph'
+# commits that are in branch2 that are not in branch1; xargs to remove trailing and leading spaces
+alias gdb "git branch -r | fzf-tmux -p 30%,90% --header 'target branch' | xargs | read target; git branch -r | fzf-tmux -p 30%,90% --header 'source branch' | xargs | read src; git log --oneline --graph --decorate --abbrev-commit \$target..\$src | fzf-tmux -p 90%,90% --preview='git show --color=always {1} | delta' > /dev/null && git diff \$target..\$src"
 
 abbr gpul 'git pull'
 abbr gpus 'git push'
