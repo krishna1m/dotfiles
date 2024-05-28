@@ -254,6 +254,7 @@ alias ghprb="GH_FORCE_TTY=100% gh pr list | fzf --ansi --header-lines 3 --previe
 # comment on the PR in browser
 alias ghprcc="GH_FORCE_TTY=100% gh pr list | fzf --ansi --header-lines 3 --preview 'GH_FORCE_TTY=100% gh pr view {1}' | awk '{print \$1}' | xargs gh pr comment -w"
 abbr ghb "gh browse"
+abbr ghbc "gh browse -c="
 abbr ghs "gh search"
 
 
