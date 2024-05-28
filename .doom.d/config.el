@@ -89,9 +89,9 @@
           ("l" "Learning" entry (file+headline "~/org/learn.org" "Learning")
            "* TODO %?\n")
           ("w" "Work" entry (file+headline "~/org/work.org" "Work")
-           "* TODO %?\n DEADLINE: %^t\n")
+           "* TODO %?\nDEADLINE: %^t\n")
           ("r" "Rendezvous" entry (file+headline "~/org/rendezvous.org" "Rendezvous")
-           "* TODO %?\n SCHEDULED: %^t\n Agenda\n MOM")
+           "* TODO %?\nSCHEDULED: %^t\n** Agenda\n** Minutes\n")
           )))
 
 ;; Default org-capture templates
