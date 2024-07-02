@@ -6,7 +6,7 @@ set nowrap
 set nowb
 set scrolloff=8
 set signcolumn=yes
-set rnu nu
+set nu
 set hidden
 set hlsearch
 set smartcase
