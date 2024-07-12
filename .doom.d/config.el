@@ -69,6 +69,8 @@
         org-agenda-skip-scheduled-if-done t
         org-agenda-skip-scheduled-if-deadline-is-shown t
         org-agenda-skip-timestamp-if-deadline-is-shown t)
+  (setq org-todo-keywords
+        (quote ((sequence  "KILL(k)" "DONE(d)" "HOLD(h)" "STRT(s)" "TODO(t)" "IDEA(i)"))))
   ;; (global-org-modern-mode)
  )
 

@@ -55,6 +55,7 @@
 (package! olivetti)
 (package! org-super-agenda)
 (package! ox-pandoc)
+(package! org-kanban)
 ;; Doom's packages are pinned to a specific commit and updated from release to
 ;; release. The `unpin!' macro allows you to unpin single packages...
 ;(unpin! pinned-package)
