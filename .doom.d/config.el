@@ -229,6 +229,11 @@
   (if (eq major-mode 'org-mode)
       (org-agenda-redo-all t)))
 
+(after! org-excalidraw
+  (setq org-excalidraw-directory "~/draw"))
+
+(org-excalidraw-initialize)
+
 ;; Which-key delay seconds
 (setq which-key-idle-delay 0)
 
