@@ -1,6 +1,6 @@
 # fun commands - cmatrix, cowsay, sl, fortune, asciiquarium, pv, toilet
 # useful packages - fd, ripgrep, ripgrep-all, fzf, pbcopy, pbpaste, sponge, zoxide, ranger, gnupg, neofetch, tealdeer, httpie, direnv, jq, parallel, bat, exa, pcre2, bats-core, git-delta, gh
-# useful packages (continued)- `brew install noahgorstein/tap/jqp`, pyenv, jid, csvkit, gsed, ntfy, zed, pandoc, basictex, openapi-tui
+# useful packages (continued)- `brew install noahgorstein/tap/jqp`, pyenv, jid, csvkit, gsed, ntfy, zed, pandoc, basictex, openapi-tui, canvas, excalidraw_export, woff2
 # cmake
 set -x CMAKE_PATH /Applications/CMake.app/Contents/bin
 set -x PATH $CMAKE_PATH $PATH
