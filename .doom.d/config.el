@@ -204,6 +204,13 @@
 
 (add-hook 'org-agenda-mode-hook 'org-agenda-open-hook)
 
+(defun clojure-startup-hook ()
+  (map! :map clojure-mode-map
+        :n "C-h" #'paredit-forward-barf-sexp
+        :n "C-l" #'paredit-forward-slurp-sexp))
+
+(add-hook 'clojure-mode-hook 'clojure-startup-hook)
+
 ;; Deft configuration
 (setq deft-directory "~/org"
       deft-extensions '("org" "txt")
