@@ -66,7 +66,7 @@
   (map! :map org-mode-map
         :n "M-j" #'org-metadown
         :n "M-k" #'org-metaup
-        :leader (:prefix ("k" . "kanban")
+        :localleader (:prefix ("k" . "kanban")
                  :desc "kanban/shift" "s" #'org-kanban/shift
                  :desc "kanban/initialize" "i" #'org-kanban/initialize-at-beginning)
         )
