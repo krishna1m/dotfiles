@@ -54,6 +54,12 @@
 ;; (setq global-display-line-numbers-mode t)
 (setq display-line-numbers-type 'relative)
 
+;; disable auto-completion suggestions in all buffers by default
+(setq company-mode 'nil)
+(map! :leader
+      :desc "company-mode autocomplete"
+      "t a" #'global-company-mode)
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (after! org
