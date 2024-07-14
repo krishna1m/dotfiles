@@ -82,6 +82,7 @@
         org-agenda-skip-scheduled-if-done t
         org-agenda-skip-scheduled-if-deadline-is-shown t
         org-agenda-skip-timestamp-if-deadline-is-shown t
+        calendar-week-start-day 1
         org-deadline-warning-days 30)
 
   ;; coming from doom emacs
