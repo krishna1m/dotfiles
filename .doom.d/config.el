@@ -269,6 +269,12 @@
 (after! org-excalidraw
   (setq org-excalidraw-directory "~/draw"))
 
+(after! (:and org-excalidraw org)
+  (map! :map org-mode-map
+        :localleader (:prefix ("a")
+                      :desc "org-excalidraw-attach-drawing" "e" #'org-excalidraw-create-drawing))
+  (setq org-excalidraw-directory "~/draw"))
+
 (org-excalidraw-initialize)
 
 ;; Which-key delay seconds
