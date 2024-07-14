@@ -100,22 +100,25 @@
   :config
   (setq org-capture-templates
         '(
-          ("p" "Personal" entry (file+headline "~/org/personal.org" "Personal")
-           "* TODO %?\n")
-          ("f" "Family" entry (file+headline "~/org/family.org" "Family")
-           "* TODO %?\n")
-          ("m" "Money" entry (file+headline "~/org/money.org" "Money")
-           "* TODO %?\n")
-          ("h" "Home" entry (file+headline "~/org/home.org" "Home")
-           "* TODO %?\n")
+          ("a" "Aspect")
+          ("ap" "Personal" entry (file+headline "~/org/personal.org" "Personal")
+           "* TODO %?\n%^{CAPTURE TYPE|DEADLINE|SCHEDULED}: %^t\n")
+          ("af" "Family" entry (file+headline "~/org/family.org" "Family")
+           "* TODO %?\n%^{CAPTURE TYPE|DEADLINE|SCHEDULED}: %^t\n")
+          ("am" "Money" entry (file+headline "~/org/money.org" "Money")
+           "* TODO %?\n%^{CAPTURE TYPE|DEADLINE|SCHEDULED}: %^t\n")
+          ("ah" "Home" entry (file+headline "~/org/home.org" "Home")
+           "* TODO %?\n%^{CAPTURE TYPE|DEADLINE|SCHEDULED}: %^t\n")
           ("l" "Learning" entry (file+headline "~/org/learn.org" "Learning")
-           "* TODO %?\n")
+           "* TODO %?\n%^{CAPTURE TYPE|DEADLINE|SCHEDULED}: %^t\n")
           ("w" "Work" entry (file+headline "~/org/work.org" "Work")
+           "* TODO %?\n%^{CAPTURE TYPE|DEADLINE|SCHEDULED}: %^t\n")
+          ("m" "Meetings" entry (file+headline "~/org/meetings.org" "Meetings")
+           "* TODO %?\nDEADLINE: %^t\n** Agenda\n** Minutes\n")
+          ("r" "Research" entry (file+headline "~/org/research.org" "Research")
            "* TODO %?\nDEADLINE: %^t\n")
-          ("s" "Search" entry (file+headline "~/org/search.org" "Search")
-           "* TODO %?\nDEADLINE: %^t\n")
-          ("r" "Rendezvous" entry (file+headline "~/org/rendezvous.org" "Rendezvous")
-           "* TODO %?\nSCHEDULED: %^t\n** Agenda\n** Minutes\n")
+          ("s" "Scratch" entry (file+headline "~/org/scratch.org" "Scratch")
+           "* %?\n%i")
           )))
 
 ;; Default org-capture templates
@@ -192,16 +195,16 @@
                 :and(:file-path "learn" :not (:todo "DONE"))
                 :order 8)
 
-         (:name "Search "
-                :and(:file-path "search" :not (:todo "DONE"))
+         (:name "Research "
+                :and(:file-path "research" :not (:todo "DONE"))
                 :order 9)
 
          (:name "Follow Up "
-                :and(:file-path "rendezvous" :deadline future :tag "fup" :not (:todo "DONE"))
+                :and(:file-path "meetings" :deadline future :tag "fup" :not (:todo "DONE"))
                 :order 10
                 :face 'warning)
 
-         ;; another category - rendezvous(takes tag as "event")
+         ;; another category - meetings(takes tag as "event")
          (:name "  Today "  ; Optionally specify section name
           :time-grid t
           :date today
@@ -210,7 +213,7 @@
           :face 'warning)
 
          (:name "Upcoming "
-                :and(:file-path "rendezvous" :deadline future :not (:todo "DONE"))
+                :and(:file-path "meetings" :deadline future :not (:todo "DONE"))
                 :order 11
                 :face 'warning)
 
@@ -232,8 +235,8 @@
         ("home", (list (all-the-icons-faicon "home" :v-adjust 0.005)) nil nil :ascent center)
         ("learn", (list (all-the-icons-faicon "book" :height 0.8)) nil nil :ascent center)
         ("work", (list (all-the-icons-faicon "briefcase" :height 0.8)) nil nil :ascent center)
-        ("search", (list (all-the-icons-faicon "search" :height 0.8)) nil nil :ascent center)
-        ("rendezvous", (list (all-the-icons-faicon "clock-o" :height 0.8 :v-height 0.005)) nil nil :ascent center :mask heuristic)
+        ("research", (list (all-the-icons-faicon "search" :height 0.8)) nil nil :ascent center)
+        ("meetings", (list (all-the-icons-faicon "clock-o" :height 0.8 :v-height 0.005)) nil nil :ascent center :mask heuristic)
         )
       )
 
