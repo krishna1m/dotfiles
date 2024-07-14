@@ -224,9 +224,26 @@
 (add-hook 'clojure-mode-hook 'clojure-startup-hook)
 
 ;; Deft configuration
-(setq deft-directory "~/org"
-      deft-extensions '("org" "txt")
+(defvar my/deft-dir-list '()
+  "A list of deft directories to pick")
+
+(setq my/deft-dir-list '(
+                         "~/roam"
+                         "~/journal"
+                         "~/org"
+                         ))
+
+(defun my/pick-deft-dir ()
+  "Select directories from a list"
+  (interactive)
+  (setq deft-directory
+        (ido-completing-read "Pick directory: " my/deft-dir-list))
+  (deft-refresh))
+(setq deft-extensions '("org" "txt")
       deft-recursive t)
+(map! :after deft
+      :leader (:prefix ("n" . "notes")
+               :desc "deft/pick-directory" "p" #'my/pick-deft-dir))
 
 (setq org-journal-dir "~/journal"
       org-journal-date-prefix "#+TITLE: "
