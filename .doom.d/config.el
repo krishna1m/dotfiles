@@ -72,6 +72,8 @@
         )
   (setq org-directory "~/org")
   (setq org-log-done 'note)
+  (setq org-log-repeat 'note)
+  (setq org-closed-keep-when-no-todo t)
   (setq org-agenda-span 1
         org-agenda-start-day "+0d"
         org-agenda-skip-timestamp-if-done t
@@ -79,12 +81,17 @@
         org-agenda-skip-scheduled-if-done t
         org-agenda-skip-scheduled-if-deadline-is-shown t
         org-agenda-skip-timestamp-if-deadline-is-shown t)
+
+  ;; coming from doom emacs
+  ;; ((sequence "TODO(t)" "PROJ(p)" "LOOP(r)" "STRT(s)" "WAIT(w)" "HOLD(h)" "IDEA(i)" "|" "DONE(d)" "KILL(k)")
+  ;;  (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D)")
+  ;;  (sequence "|" "OKAY(o)" "YES(y)" "NO(n)"))
+
   (setq org-todo-keywords
-        (quote ((sequence  "KILL(k)" "DONE(d)" "HOLD(h)" "STRT(s)" "TODO(t)" "IDEA(i)"))))
+        (quote ((sequence "TODO(t)" "STRT(s)" "HOLD(h)" "|" "DONE(d)" "KILL(k)"))))
+
   ;; (global-org-modern-mode)
  )
-
-(setq org-export-with-broken-links t)
 
 (use-package org-capture
   :config
@@ -152,41 +159,41 @@
 (setq org-super-agenda-groups
        '(;; Each group has an implicit boolean OR operator between its selectors.
          (:name " Overdue "  ; Optionally specify section name
-                :scheduled past
+                :and(:scheduled past :not (:todo "DONE"))
                 :order 2
                 :face 'error)
 
-         (:name "Personal "
-                :and(:file-path "personal" :not (:tag "event"))
+         (:name "Work "
+                :and(:file-path "work" :not (:tag "event") :not (:todo "DONE"))
                 :order 3)
+
+         (:name "Personal "
+                :and(:file-path "personal" :not (:tag "event") :not (:todo "DONE"))
+                :order 4)
 
          (:name "Family "
-                :and(:file-path "family" :not (:tag "event"))
-                :order 3)
+                :and(:file-path "family" :not (:tag "event") :not (:todo "DONE"))
+                :order 5)
 
          (:name "Money "
-                :and(:file-path "money" :not (:tag "event"))
-                :order 3)
+                :and(:file-path "money" :not (:tag "event") :not (:todo "DONE"))
+                :order 6)
 
          (:name "Home "
-                :and(:file-path "home" :not (:tag "event"))
-                :order 3)
+                :and(:file-path "home" :not (:tag "event") :not (:todo "DONE"))
+                :order 7)
 
          (:name "Learning "
-                :and(:file-path "learn" :not (:tag "event"))
-                :order 3)
+                :and(:file-path "learn" :not (:tag "event") :not (:todo "DONE"))
+                :order 8)
 
-         (:name "Work "
-                :and(:file-path "work" :not (:tag "event"))
-                :order 3)
-
-         ;; another category - rendezvous
-          (:name "  Today "  ; Optionally specify section name
-                :time-grid t
-                :date today
-                :scheduled today
-                :order 1
-                :face 'warning)
+         ;; another category - rendezvous(takes tag as "event")
+         (:name "  Today "  ; Optionally specify section name
+          :time-grid t
+          :date today
+          :scheduled today
+          :order 1
+          :face 'warning)
 
 ))
 
