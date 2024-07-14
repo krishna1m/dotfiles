@@ -111,6 +111,8 @@
            "* TODO %?\n")
           ("w" "Work" entry (file+headline "~/org/work.org" "Work")
            "* TODO %?\nDEADLINE: %^t\n")
+          ("s" "Search" entry (file+headline "~/org/search.org" "Search")
+           "* TODO %?\nDEADLINE: %^t\n")
           ("r" "Rendezvous" entry (file+headline "~/org/rendezvous.org" "Rendezvous")
            "* TODO %?\nSCHEDULED: %^t\n** Agenda\n** Minutes\n")
           )))
@@ -161,41 +163,55 @@
 (setq org-super-agenda-groups
        '(;; Each group has an implicit boolean OR operator between its selectors.
          (:name " Overdue "  ; Optionally specify section name
-                :and(:scheduled past :not (:todo "DONE"))
+                :and(:deadline past :not (:todo "DONE"))
                 :order 2
                 :face 'error)
 
          (:name "Work "
-                :and(:file-path "work" :not (:tag "event") :not (:todo "DONE"))
+                :and(:file-path "work" :not (:todo "DONE"))
                 :order 3)
 
          (:name "Personal "
-                :and(:file-path "personal" :not (:tag "event") :not (:todo "DONE"))
+                :and(:file-path "personal" :not (:todo "DONE"))
                 :order 4)
 
          (:name "Family "
-                :and(:file-path "family" :not (:tag "event") :not (:todo "DONE"))
+                :and(:file-path "family" :not (:todo "DONE"))
                 :order 5)
 
          (:name "Money "
-                :and(:file-path "money" :not (:tag "event") :not (:todo "DONE"))
+                :and(:file-path "money" :not (:todo "DONE"))
                 :order 6)
 
          (:name "Home "
-                :and(:file-path "home" :not (:tag "event") :not (:todo "DONE"))
+                :and(:file-path "home" :not (:todo "DONE"))
                 :order 7)
 
          (:name "Learning "
-                :and(:file-path "learn" :not (:tag "event") :not (:todo "DONE"))
+                :and(:file-path "learn" :not (:todo "DONE"))
                 :order 8)
+
+         (:name "Search "
+                :and(:file-path "search" :not (:todo "DONE"))
+                :order 9)
+
+         (:name "Follow Up "
+                :and(:file-path "rendezvous" :deadline future :tag "fup" :not (:todo "DONE"))
+                :order 10
+                :face 'warning)
 
          ;; another category - rendezvous(takes tag as "event")
          (:name "  Today "  ; Optionally specify section name
           :time-grid t
           :date today
-          :scheduled today
+          :deadline today
           :order 1
           :face 'warning)
+
+         (:name "Upcoming "
+                :and(:file-path "rendezvous" :deadline future :not (:todo "DONE"))
+                :order 11
+                :face 'warning)
 
 ))
 
@@ -215,7 +231,8 @@
         ("home", (list (all-the-icons-faicon "home" :v-adjust 0.005)) nil nil :ascent center)
         ("learn", (list (all-the-icons-faicon "book" :height 0.8)) nil nil :ascent center)
         ("work", (list (all-the-icons-faicon "briefcase" :height 0.8)) nil nil :ascent center)
-        ("rendezvous", (list (all-the-icons-faicon "calendar-o" :height 0.7 :v-height 0.005)) nil nil :ascent center :mask heuristic)
+        ("search", (list (all-the-icons-faicon "search" :height 0.8)) nil nil :ascent center)
+        ("rendezvous", (list (all-the-icons-faicon "clock-o" :height 0.8 :v-height 0.005)) nil nil :ascent center :mask heuristic)
         )
       )
 
