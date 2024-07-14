@@ -65,7 +65,11 @@
 (after! org
   (map! :map org-mode-map
         :n "M-j" #'org-metadown
-        :n "M-k" #'org-metaup)
+        :n "M-k" #'org-metaup
+        :leader (:prefix ("k" . "kanban")
+                 :desc "kanban/shift" "s" #'org-kanban/shift
+                 :desc "kanban/initialize" "i" #'org-kanban/initialize-at-beginning)
+        )
   (setq org-directory "~/org")
   (setq org-log-done 'note)
   (setq org-agenda-span 1
