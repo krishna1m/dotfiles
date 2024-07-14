@@ -71,6 +71,7 @@
                  :desc "kanban/initialize" "i" #'org-kanban/initialize-at-beginning)
         )
   (setq org-directory "~/org")
+  (setq org-attach-id-dir "~/org/.attach")
   (setq org-log-done 'note)
   (setq org-log-repeat 'note)
   (setq org-closed-keep-when-no-todo t)
