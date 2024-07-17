@@ -92,7 +92,8 @@
 
   (setq org-todo-keywords
         (quote ((sequence "TODO(t)" "STRT(s)" "HOLD(h)" "|" "DONE(d)" "KILL(k)"))))
-
+  (setq org-clock-persist 'history)
+  (org-clock-persistence-insinuate)
   ;; (global-org-modern-mode)
  )
 
@@ -370,6 +371,7 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
 ;; metals install till EOF
 (require 'package)
 
