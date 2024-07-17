@@ -298,11 +298,11 @@
                       :desc "org-excalidraw-attach-drawing" "e" #'org-excalidraw-create-drawing)
         :localleader (:prefix ("c" . "clock")
                       (:prefix ("T" . "org-timer")
-                       :desc "org-timer/start" "k" #'org-timer-start
-                       :desc "org-timer/stop" "j" #'org-timer-stop
+                       :desc "org-timer/start" "s" #'org-timer-start
+                       :desc "org-timer/end" "e" #'org-timer-stop
                        :desc "org-timer/toggle-pause" "t" #'org-timer-pause-or-continue
                        :desc "org-timer/item" "i" #'org-timer-item
-                       :desc "org-timer/set-timer" "s" #'org-timer-set-timer))
+                       :desc "org-timer/countdown" "c" #'org-timer-set-timer))
         )
   (setq org-excalidraw-directory "~/draw"))
 
