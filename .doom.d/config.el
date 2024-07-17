@@ -269,7 +269,8 @@
   (setq deft-directory
         (ido-completing-read "Pick directory: " my/deft-dir-list))
   (deft-refresh))
-(setq deft-extensions '("org" "txt")
+(setq deft-directory "~/org"
+      deft-extensions '("org" "txt")
       deft-recursive t)
 (map! :after deft
       :leader (:prefix ("n" . "notes")
