@@ -100,7 +100,7 @@
                         (:endgroup . nil)
                         ("howdy" . ?h)
                         ("achievement" . ?a) ("bookkeeping" . ?b) ("completed" . ?c) ("dollar" . ?d)
-                        ("event" . ?e) ("goal" . ?g) ("issue" . ?i) ("learning" . ?l)
+                        ("event" . ?e) ("goal" . ?g) ("health" . ?h) ("issue" . ?i) ("learning" . ?l)
                         ("meeting" . ?m) ("ongoing" . ?o) ("research" . ?r) ("teamwork" . ?t)
                         ("followup" . ?u) ("interview" . ?v)))
   ;; (global-org-modern-mode)
