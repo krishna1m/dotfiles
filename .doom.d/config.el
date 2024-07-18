@@ -270,6 +270,8 @@
   (setq deft-directory
         (ido-completing-read "Pick directory: " my/deft-dir-list))
   (deft-refresh))
+
+;; default deft directory
 (setq deft-directory "~/org"
       deft-extensions '("org" "txt")
       deft-recursive t)
