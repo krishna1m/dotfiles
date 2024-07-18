@@ -160,7 +160,11 @@
 
 (with-eval-after-load 'org
   (defun org-agenda-files (&rest _)
-    (directory-files-recursively "~/org" org-agenda-file-regexp)))
+    (append
+     (directory-files-recursively "~/org" org-agenda-file-regexp)
+     (directory-files-recursively "~/journal" org-agenda-file-regexp)
+     )))
+
 
 (setq org-agenda-current-time-string "← now ───────────────────────────────────────────────")
 (setq org-agenda-time-grid '((daily) () "" ""))
