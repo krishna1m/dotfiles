@@ -94,6 +94,14 @@
         (quote ((sequence "TODO(t)" "STRT(s)" "HOLD(h)" "|" "DONE(d)" "KILL(k)"))))
   (setq org-clock-persist 'history)
   (org-clock-persistence-insinuate)
+
+  (setq org-tag-alist '((:startgroup . nil)
+                        ("@family" . ?f) ("@personal" . ?p) ("@work" . ?w)
+                        (:endgroup . nil)
+                        ("howdy" . ?h)
+                        ("achievement" . ?a) ("bookkeeping" . ?b) ("completed" . ?c) ("dollar" . ?d)
+                        ("event" . ?e) ("goal" . ?g) ("issue_identified" . ?i) ("learning" . ?l)
+                        ("meeting" . ?m) ("ongoing" . ?o) ("research" . ?r) ("teamwork" . ?t)))
   ;; (global-org-modern-mode)
  )
 
